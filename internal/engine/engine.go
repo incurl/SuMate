@@ -396,3 +396,13 @@ func strengthLabel(s model.Strength) string {
 	}
 	return ""
 }
+
+// MatchIn ranks a given pool of verses against the selection.
+//
+// It is used when the strict intersection of the selected tags is empty and
+// the product has to fall back to a relaxed pool, so that the user always
+// receives a verse.
+func (e *Engine) MatchIn(pool []model.Verse, sel Selection) model.MatchResult {
+	sub := &Engine{verses: pool}
+	return sub.Match(sel)
+}

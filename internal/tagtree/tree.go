@@ -208,6 +208,32 @@ func (t *Tree) countMatching(kept []string, tagID string, verses []VerseIndex) i
 	return n
 }
 
+// Relaxed filters the verses by the path, but keeps a verse when it matches
+// *at least one* of the dimensions the path has entered.
+//
+// The strict filter is what the counts show; the relaxed one is the fallback
+// pool for the final match, so that a user who has over-specified their
+// selection still receives a verse instead of an empty screen.
+func (t *Tree) Relaxed(verses []VerseIndex, path []Filter) []string {
+	if len(path) == 0 {
+		out := make([]string, 0, len(verses))
+		for _, v := range verses {
+			out = append(out, v.ID())
+		}
+		return out
+	}
+	kept := make([]string, 0, len(verses))
+	for _, v := range verses {
+		for _, f := range path {
+			if v.Has(f.Root, f.NodeID) {
+				kept = append(kept, v.ID())
+				break
+			}
+		}
+	}
+	return kept
+}
+
 // VerseIndex is the minimal interface the tree needs to filter verses.
 type VerseIndex interface {
 	// ID is the verse id.

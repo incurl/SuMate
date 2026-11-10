@@ -211,7 +211,29 @@ func (s *Service) Match(path []tagtree.Filter, description string) model.MatchRe
 		}
 		sel.Tags[f.Root] = append(sel.Tags[f.Root], f.NodeID)
 	}
-	return s.engine.Match(sel)
+
+	// The candidate pool is the strict intersection of the selected tags.
+	// When that pool is empty -- which happens when the user over-specifies
+	// the selection across several dimensions -- the pool is relaxed to the
+	// union of the per-dimension matches, so that the user always receives a
+	// verse instead of an empty screen.
+	strict := s.tree.Apply(s.index, path)
+	if len(strict.Verses) > 0 {
+		return s.engine.Match(sel)
+	}
+
+	relaxed := s.tree.Relaxed(s.index, path)
+	keep := make(map[string]bool, len(relaxed))
+	for _, id := range relaxed {
+		keep[id] = true
+	}
+	pool := make([]model.Verse, 0, len(relaxed))
+	for _, v := range s.verses {
+		if keep[v.ID] {
+			pool = append(pool, v)
+		}
+	}
+	return s.engine.MatchIn(pool, sel)
 }
 
 // Verse returns a single verse by id.

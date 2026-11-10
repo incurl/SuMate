@@ -222,3 +222,10 @@ type Poem struct {
 	Place   string    `json:"place"`
 	Order   int       `json:"order"`
 }
+
+// EraYear pairs a reign era with a western year.  It is used to resolve the
+// cyclical year names ("丙辰") that appear in 词题.
+type EraYear struct {
+	Era  Era
+	Year int
+}

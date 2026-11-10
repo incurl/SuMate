@@ -7,6 +7,9 @@ import (
 	"github.com/sumate/sumate/internal/annotate"
 )
 
+// newTestEngine returns the annotation engine used by the tests.
+func newTestEngine() *annotate.Engine { return annotate.New() }
+
 func TestPipelineProducesAnnotatedVerses(t *testing.T) {
 	c, err := Load()
 	if err != nil {

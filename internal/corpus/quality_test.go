@@ -9,7 +9,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sumate/sumate/internal/annotate"
+	"github.com/incurl/sumate/internal/annotate"
 )
 
 // TestCorpusCopiesAreIdentical guards the single-source-of-truth rule.

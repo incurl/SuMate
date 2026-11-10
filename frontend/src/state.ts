@@ -5,7 +5,7 @@
 // dimension: every root owns a contiguous segment of the path.  This is what
 // lets the user drill inside the mood dimension, switch to the weather
 // dimension, drill there too, and still have a single coherent selection.
-import { RootKey } from "../bindings/github.com/sumate/sumate/internal/model/models";
+import { RootKey } from "../bindings/github.com/incurl/sumate/internal/model/models";
 import type { Breadcrumb, Filter, TreeNode, Verse } from "./types";
 
 export interface AppState {

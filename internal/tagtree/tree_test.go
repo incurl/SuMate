@@ -3,7 +3,7 @@ package tagtree
 import (
 	"testing"
 
-	"github.com/sumate/sumate/internal/model"
+	"github.com/incurl/sumate/internal/model"
 )
 
 func TestBuildShape(t *testing.T) {

@@ -10,7 +10,7 @@ import (
 	"embed"
 	"log"
 
-	"github.com/sumate/sumate/internal/service"
+	"github.com/incurl/sumate/internal/service"
 	"github.com/wailsapp/wails/v3/pkg/application"
 )
 

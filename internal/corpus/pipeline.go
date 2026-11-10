@@ -3,8 +3,8 @@ package corpus
 import (
 	"fmt"
 
-	"github.com/sumate/sumate/internal/annotate"
-	"github.com/sumate/sumate/internal/model"
+	"github.com/incurl/sumate/internal/annotate"
+	"github.com/incurl/sumate/internal/model"
 )
 
 // Pipeline assembles the annotated verse set from the raw corpus.

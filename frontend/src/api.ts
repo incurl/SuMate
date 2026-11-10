@@ -2,7 +2,7 @@
 //
 // The generated bindings return `| null` for slices; the wrapper normalises
 // that away so the rest of the application can rely on plain arrays.
-import * as svc from "../bindings/github.com/sumate/sumate/internal/service/service";
+import * as svc from "../bindings/github.com/incurl/sumate/internal/service/service";
 import type {
   Breadcrumb,
   Filter,

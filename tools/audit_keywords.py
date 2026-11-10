@@ -26,6 +26,15 @@ for m in re.finditer(r'Keywords:\s*\[\]string\{([^}]*)\}', src):
             kws.append(k)
 
 print('distinct keywords: %d' % len(kws))
+specific = [k for k in kws if len(k) >= 2]
+single = [k for k in kws if len(k) == 1]
+print('  specific (>=2 chars): %d   single (weak evidence): %d'
+      % (len(specific), len(single)))
+
+# How many poems does a specific keyword actually reach?
+covered = sum(1 for t in texts if any(k in t for k in specific))
+print('  poems reached by a specific keyword: %d/%d (%.0f%%)'
+      % (covered, len(texts), 100.0 * covered / len(texts)))
 rows = []
 for k in kws:
     hits = sum(1 for t in texts if k in t)

@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sumate/sumate/internal/model"
+	"github.com/incurl/sumate/internal/model"
 )
 
 // Era markers in the 词题/小序, mapped to the reign era and its first year.

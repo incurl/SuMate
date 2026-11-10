@@ -26,18 +26,25 @@ SuMate（东坡嘴替）不是一个诗词搜索框，而是一台**逐层挖掘
 ## 二、快速开始
 
 ```bash
-# 构建并运行桌面应用
-wails3 build
+# 全流程：生成 → 校验 → 构建（顺序固定）
+./tools/build.sh
 ./bin/sumate
+
+# 分步
+./tools/build.sh corpus    # 重建语料
+./tools/build.sh lint      # 校验（格式 + 领域）
+./tools/build.sh gotest    # Go 断言
+./tools/build.sh frontend  # 前端类型检查与测试
 
 # 开发模式（热重载）
 wails3 dev
+```
 
-# Go 测试
-go test ./internal/...
+**质量门**——任何改动后这两组数字都必须仍然成立：
 
-# 前端测试与构建
-cd frontend && npm install && node tests/state.test.mjs && npm run build
+```
+格式校验 5/5 通过   ← tools/lint_corpus.py
+领域校验 3/3 通过   ← 同上 + go test ./internal/corpus/
 ```
 
 ---
@@ -99,10 +106,38 @@ python3 tools/build_corpus.py && ./tools/sync_corpus.sh
 
 ---
 
-## 六、目录结构
+## 六、标注是怎么被验出来的
+
+格式正确 ≠ 数据正确——这是 `../oblique` 工程用两次数据事故换来的教训，
+本项目继承这条纪律。
+
+**两层校验**（`tools/lint_corpus.py`）：
+
+- **格式层**（5 项）：底本完整性、括号配对、无嵌套、无半角引号、类型白名单；
+- **领域层**（3 项）：**词牌↔字数**、句读归属、最小单元非空。
+
+其中「词牌↔字数」是苏词的领域约束，等价于楹联的「上下联等长」。
+它一上来就抓出了三处真实缺陷：校语混进词句、缺文被静默删除、`has_text`
+标志与实际文本不符。
+
+**底本分层**：四库正文里的 `【…】` 一律不是词句——或是缺文（只计数，不补字），
+或是集句所引的作者，或是异文，或是校语。四者**按顺序剥**，顺序反了集句就
+永远识别不出来。
+
+**词表纪律**：触发词分强弱。具体词组（「拣尽寒枝」）是强证据；单字（「风」「月」）
+只出现在三成以上语料里，不得单独成立——弱证据仍贡献标签，但不进入「主要概念」。
+
+**规律库**：`docs/RULES_标注规律库.md` 记录 12 条规律，每条都来自一次真实错误，
+包括记录「我自己犯过的错」的反向规律。
+
+---
+
+## 七、目录结构
 
 ```
-data/dongpo_corpus.json        合并后的语料（嵌入 Go 二进制）
+data/dongpo_corpus.json        合并后的语料（唯一事实源，嵌入 Go 二进制）
+docs/SPEC_苏词标注规范.md      标注规范
+docs/RULES_标注规律库.md       规律库
 internal/
   model/       领域类型（JSON 友好）
   corpus/      语料加载、最小单元切分、历史推导
@@ -113,12 +148,12 @@ internal/
   service/     对前端的唯一入口
 cmd/dump/      审阅标注质量的开发工具
 frontend/      Wails v3 + TypeScript 前端
-tools/         语料构建脚本
+tools/         语料构建、校验、词表审计与全流程脚本
 ```
 
 ---
 
-## 七、数据来源与致谢
+## 八、数据来源与致谢
 
 - 正文与词题：**钦定四库全书《东坡词》**（公有领域）
 - 断句与标点：[chinese-poetry](https://github.com/chinese-poetry/chinese-poetry)

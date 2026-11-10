@@ -1,6 +1,6 @@
 // The domain types come straight from the Wails-generated bindings, so the
 // frontend and the Go backend can never drift apart.
-import { RootKey } from "../bindings/github.com/sumate/sumate/internal/model/models";
+import { RootKey } from "../bindings/github.com/incurl/sumate/internal/model/models";
 
 export type {
   Annotation,
@@ -15,9 +15,9 @@ export type {
   Tangent,
   TreeNode,
   Verse,
-} from "../bindings/github.com/sumate/sumate/internal/model/models";
+} from "../bindings/github.com/incurl/sumate/internal/model/models";
 
-export type { Filter } from "../bindings/github.com/sumate/sumate/internal/tagtree/models";
+export type { Filter } from "../bindings/github.com/incurl/sumate/internal/tagtree/models";
 
 export { RootKey };
 

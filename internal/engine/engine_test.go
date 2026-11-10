@@ -4,9 +4,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sumate/sumate/internal/annotate"
-	"github.com/sumate/sumate/internal/corpus"
-	"github.com/sumate/sumate/internal/model"
+	"github.com/incurl/sumate/internal/annotate"
+	"github.com/incurl/sumate/internal/corpus"
+	"github.com/incurl/sumate/internal/model"
 )
 
 func loadEngine(t *testing.T) *Engine {

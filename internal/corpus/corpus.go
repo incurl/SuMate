@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/sumate/sumate/internal/model"
+	"github.com/incurl/sumate/internal/model"
 )
 
 //go:embed data/dongpo_corpus.json

@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sumate/sumate/internal/annotate"
+	"github.com/incurl/sumate/internal/annotate"
 )
 
 // newTestEngine returns the annotation engine used by the tests.

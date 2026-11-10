@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sumate/sumate/internal/model"
-	"github.com/sumate/sumate/internal/tagtree"
+	"github.com/incurl/sumate/internal/model"
+	"github.com/incurl/sumate/internal/tagtree"
 )
 
 // TestProgressiveDrillingFlow walks the whole product loop the way a user

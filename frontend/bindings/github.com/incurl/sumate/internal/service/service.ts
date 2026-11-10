@@ -21,28 +21,28 @@ import * as tagtree$0 from "../tagtree/models.js";
  * AllVerses returns every verse, for the browse view.
  */
 export function AllVerses(): $CancellablePromise<model$0.Verse[] | null> {
-    return $Call.ByID(20171325);
+    return $Call.ByID(1940374585);
 }
 
 /**
  * Breadcrumb builds the breadcrumb trail for the current selection.
  */
 export function Breadcrumb(path: tagtree$0.Filter[] | null): $CancellablePromise<model$0.Breadcrumb[] | null> {
-    return $Call.ByID(2137062565, path);
+    return $Call.ByID(2341170193, path);
 }
 
 /**
  * Children returns the children of a node with their live counts.
  */
 export function Children(nodeID: string, path: tagtree$0.Filter[] | null): $CancellablePromise<model$0.TreeNode[] | null> {
-    return $Call.ByID(2114815667, nodeID, path);
+    return $Call.ByID(1639387759, nodeID, path);
 }
 
 /**
  * Match runs the final convergence matching rule.
  */
 export function Match(path: tagtree$0.Filter[] | null, description: string): $CancellablePromise<model$0.MatchResult> {
-    return $Call.ByID(2629136141, path, description);
+    return $Call.ByID(2284232017, path, description);
 }
 
 /**
@@ -50,35 +50,35 @@ export function Match(path: tagtree$0.Filter[] | null, description: string): $Ca
  * requiring the user to drill down to a leaf.
  */
 export function Preview(path: tagtree$0.Filter[] | null, limit: number): $CancellablePromise<model$0.Verse[] | null> {
-    return $Call.ByID(2480695696, path, limit);
+    return $Call.ByID(1471342836, path, limit);
 }
 
 /**
  * Roots returns the five root nodes with their live candidate counts.
  */
 export function Roots(): $CancellablePromise<model$0.TreeNode[] | null> {
-    return $Call.ByID(2213951861);
+    return $Call.ByID(1423818657);
 }
 
 /**
  * Search returns verses whose text or concepts match the query.
  */
 export function Search(query: string, limit: number): $CancellablePromise<model$0.Verse[] | null> {
-    return $Call.ByID(1131368168, query, limit);
+    return $Call.ByID(3670395468, query, limit);
 }
 
 /**
  * Stats returns a summary of the loaded corpus.
  */
 export function Stats(): $CancellablePromise<model$0.Stats> {
-    return $Call.ByID(2339111391);
+    return $Call.ByID(2166645091);
 }
 
 /**
  * String makes the service printable for debugging.
  */
 export function String(): $CancellablePromise<string> {
-    return $Call.ByID(2977430901);
+    return $Call.ByID(1658531577);
 }
 
 /**
@@ -88,5 +88,5 @@ export function String(): $CancellablePromise<string> {
  * that as an empty card rather than having to deal with an error channel.
  */
 export function Verse(id: string): $CancellablePromise<model$0.Verse> {
-    return $Call.ByID(4062621113, id);
+    return $Call.ByID(2764681861, id);
 }

@@ -3,7 +3,7 @@ package curated
 import (
 	"testing"
 
-	"github.com/sumate/sumate/internal/tagtree"
+	"github.com/incurl/sumate/internal/tagtree"
 )
 
 func TestConceptsAreWellFormed(t *testing.T) {

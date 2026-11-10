@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/sumate/sumate/internal/model"
+	"github.com/incurl/sumate/internal/model"
 )
 
 // TestTagCoverage reports how many verses reach every node of the tag tree.

@@ -1,6 +1,6 @@
 package curated
 
-import "github.com/sumate/sumate/internal/model"
+import "github.com/incurl/sumate/internal/model"
 
 // MoodEmotion links a mood tag in the tree to the emotions it stands for.
 //

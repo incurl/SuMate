@@ -1,6 +1,6 @@
 package tagtree
 
-import "github.com/sumate/sumate/internal/model"
+import "github.com/incurl/sumate/internal/model"
 
 // spec is a compact description of one node in the canonical tag tree.
 type spec struct {

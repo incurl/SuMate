@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sumate/sumate/internal/curated"
-	"github.com/sumate/sumate/internal/model"
+	"github.com/incurl/sumate/internal/curated"
+	"github.com/incurl/sumate/internal/model"
 )
 
 // TestSingleCharacterKeywordsDoNotDominate checks the Y1 rule: a keyword

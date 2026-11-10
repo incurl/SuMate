@@ -61,9 +61,16 @@ export interface Annotation {
     "healing": string;
 
     /**
-     * Concepts are the semantic concept keys used for matching.
+     * Concepts are the semantic concept keys used for matching, ranked by
+     * relevance.
      */
     "concepts": string[] | null;
+
+    /**
+     * Primary are the concepts that a specific phrase matched; they carry
+     * the prose reading of the verse.
+     */
+    "primary": string[] | null;
 
     /**
      * Keywords are surface keywords, used for display and explanation.

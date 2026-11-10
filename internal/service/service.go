@@ -8,11 +8,11 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/sumate/sumate/internal/annotate"
-	"github.com/sumate/sumate/internal/corpus"
-	"github.com/sumate/sumate/internal/engine"
-	"github.com/sumate/sumate/internal/model"
-	"github.com/sumate/sumate/internal/tagtree"
+	"github.com/incurl/sumate/internal/annotate"
+	"github.com/incurl/sumate/internal/corpus"
+	"github.com/incurl/sumate/internal/engine"
+	"github.com/incurl/sumate/internal/model"
+	"github.com/incurl/sumate/internal/tagtree"
 )
 
 // Service is the application service.

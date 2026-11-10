@@ -1,4 +1,4 @@
-module github.com/sumate/sumate
+module github.com/incurl/sumate
 
 go 1.26.0
 

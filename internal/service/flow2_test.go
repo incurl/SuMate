@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sumate/sumate/internal/tagtree"
+	"github.com/incurl/sumate/internal/tagtree"
 )
 
 // TestFlowMirrorsFrontend mirrors the state transitions of frontend/src/state.ts

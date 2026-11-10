@@ -1,6 +1,6 @@
 package curated
 
-import "github.com/sumate/sumate/internal/model"
+import "github.com/incurl/sumate/internal/model"
 
 // EmotionDef describes one emotional dimension of the annotation system.
 type EmotionDef struct {

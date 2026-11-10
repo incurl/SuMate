@@ -19,7 +19,7 @@ import {
   truncatePath,
   type AppState,
 } from "./state";
-import { RootKey } from "../bindings/github.com/sumate/sumate/internal/model/models";
+import { RootKey } from "../bindings/github.com/incurl/sumate/internal/model/models";
 import type { MatchResult, TreeNode } from "./types";
 
 const ROOT_ORDER: RootKey[] = [

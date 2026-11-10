@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/sumate/sumate/internal/tagtree"
+	"github.com/incurl/sumate/internal/tagtree"
 )
 
 // TestUserScenario walks the scenario the product is designed for: a user

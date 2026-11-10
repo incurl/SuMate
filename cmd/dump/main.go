@@ -7,8 +7,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sumate/sumate/internal/annotate"
-	"github.com/sumate/sumate/internal/corpus"
+	"github.com/incurl/sumate/internal/annotate"
+	"github.com/incurl/sumate/internal/corpus"
 )
 
 func main() {

@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/sumate/sumate/internal/model"
+	"github.com/incurl/sumate/internal/model"
 )
 
 // Tree is a hierarchical tag tree with an index for fast lookup.

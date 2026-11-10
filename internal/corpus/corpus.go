@@ -29,6 +29,10 @@ type rawCorpus struct {
 }
 
 // rawPoem is the on-disk shape of one poem.
+//
+// The layer fields record what the 四库 transmission contains beyond the
+// verse itself, so that the provenance of a verse stays visible: how many
+// characters are missing from the text, and which poets a 集句 quotes.
 type rawPoem struct {
 	Tune      string   `json:"tune"`
 	Subtitle  string   `json:"subtitle"`
@@ -38,6 +42,9 @@ type rawPoem struct {
 	Sentences []string `json:"sentences"`
 	Align     float64  `json:"align"`
 	HasText   bool     `json:"has_text"`
+	Kind      string   `json:"kind"`
+	Lacunae   int      `json:"lacunae"`
+	Quotes    []string `json:"quotes"`
 }
 
 // Corpus is the loaded corpus.
@@ -85,11 +92,12 @@ func Load() (*Corpus, error) {
 		if seen[base] > 1 {
 			id = fmt.Sprintf("%s-%d", base, seen[base])
 		}
-		kind := "normal"
-		if strings.HasPrefix(p.Subtitle, "集句") {
-			kind = "jiju"
-		} else if strings.HasPrefix(p.Subtitle, "原缺") {
-			kind = "lacuna"
+		// The kind is recorded by the corpus builder, which saw the 四库
+		// apparatus before it was stripped; deriving it here from the 词题
+		// would misclassify a 词题 that merely mentions 集句.
+		kind := p.Kind
+		if kind == "" {
+			kind = "normal"
 		}
 		c.Poems = append(c.Poems, model.Poem{
 			ID:      id,
@@ -99,6 +107,8 @@ func Load() (*Corpus, error) {
 			Stanzas: p.Stanzas,
 			Sents:   p.Sentences,
 			Kind:    kind,
+			Lacunae: p.Lacunae,
+			Quotes:  p.Quotes,
 			HasText: p.HasText,
 			Order:   i,
 		})

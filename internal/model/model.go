@@ -210,14 +210,18 @@ type Verse struct {
 
 // Poem is a source poem of the corpus.
 type Poem struct {
-	ID      string    `json:"id"`
-	Tune    string    `json:"tune"`
-	Title   string    `json:"title"`
-	Text    string    `json:"text"`
-	Stanzas []string  `json:"stanzas"`
-	Sents   []string  `json:"sentences"`
-	Kind    string    `json:"kind"`
-	Quotes  []string  `json:"quotes"`
+	ID      string   `json:"id"`
+	Tune    string   `json:"tune"`
+	Title   string   `json:"title"`
+	Text    string   `json:"text"`
+	Stanzas []string `json:"stanzas"`
+	Sents   []string `json:"sentences"`
+	// Kind is the transmission layer: "normal", "jiju" (an anthology poem
+	// quoting other poets) or "lacuna" (text missing in the transmission).
+	Kind string `json:"kind"`
+	// Quotes are the poets a 集句 quotes.
+	Quotes []string `json:"quotes"`
+	// Lacunae is the number of missing characters in the transmission.
 	Lacunae int       `json:"lacunae"`
 	HasText bool      `json:"has_text"`
 	Era     Era       `json:"era"`

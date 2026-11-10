@@ -33,6 +33,9 @@ except ImportError:          # pragma: no cover - optional dependency
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IDSP = '\u3000'              # ideographic space (indentation + stanza marker)
 CJK = re.compile(r'[\u4e00-\u9fff]')
+# A bracket whose content is about the *text* rather than about a poet:
+# 异文 (a variant reading) such as 「一作来」「一作潺湲」.
+VARIANT_MARKER = re.compile(r'一作|一云|或作|或云|又作|一系')
 SENT_END = re.compile(r'(?<=[。！？])')
 
 
@@ -181,14 +184,20 @@ def parse_siku(path):
             pos = header_end
 
     for e in entries:
-        # The 四库 apparatus must never end up inside a verse.
+        # 底本分层: the 四库 apparatus must never end up inside a verse.
         #
-        # Three kinds of bracket appear in the transmitted text:
-        #   【阙】/【原缺】  -- a gap in the text; the missing characters are
-        #                      counted, not invented;
-        #   【一作…】      -- a variant reading;
-        #   校语 / 异文     -- an editorial note appended after the verse
-        #                      (e.g. 【惠州梅花上珍禽曰倒挂子似绿毛凤而小】).
+        # Four kinds of bracket appear in the transmitted text, and they are
+        # peeled away in this order:
+        #   1. 【阙】/【原缺】  -- a gap in the text.  The missing characters
+        #      are counted, never invented (Y0b).
+        #   2. 【作者】         -- the quoted author of a 集句 line.  These
+        #      identify the poem as an anthology poem, so they are read
+        #      *before* the blanket strip below.
+        #   3. 校语 / 异文      -- an editorial note appended after the verse
+        #      (e.g. 【惠州梅花上珍禽曰倒挂子似绿毛凤而小】), recognised by
+        #      its editorial vocabulary.
+        #   4. any remaining bracket -- e.g. 【一刻枫落吴江冷。】, a 词牌
+        #      note appended after the last line.
         #
         # Leaving any of them in the verse corrupts the character count and
         # therefore the 词牌↔字数 correspondence -- the ci analogue of the
@@ -196,30 +205,33 @@ def parse_siku(path):
         e['lacunae'] = len(re.findall(r'\u3010(?:\u539f)?\u7f3a\u3011', e['body']))
         e['body'] = re.sub(r'\u3010(?:\u539f)?\u7f3a\u3011', '', e['body'])
 
-        # 校语 and 异文: an editorial bracket that follows the verse.  These
-        # are recognised by their editorial vocabulary rather than by a fixed
-        # list, because the 四库 writes them in many different ways.
-        e['body'] = re.sub(r'\u3010[^\u3011]*(?:\u4e00\u4f5c|\u4e00\u4e91|'
-                           r'\u6216\u523b|\u65e7\u523b|\u539f\u523b|\u523b\u672c|'
-                           r'\u65e7\u672c|\u6821|\u6309|\u8c28\u6309|\u539f\u7f3a|'
-                           r'\u7f3a|\u9617)[^\u3011]*\u3011', '', e['body'])
-
-        # A trailing editorial bracket of any remaining shape, e.g.
-        # 【一刻枫落吴江冷。】 -- a 词牌 note appended after the last line.
-        e['body'] = re.sub(r'\u3010[^\u3011]*\u3011', '', e['body'])
-        e['body'] = e['body'].replace('\u3000', '')
-        e['body'] = e['body'].strip()
-
         # 集句 (anthology poem): the body quotes other poets and marks each
         # quoted line with 【作者】.  Detect it from those markers rather than
         # from the 词题, because a 词题 such as 【赤壁怀古】 is also a short
         # all-CJK string.
+        #
+        # A 集句 quotes other poets and names each of them; the name is a
+        # real person, not a note about the text.  A bracket such as
+        # 【一作来】 or 【一作潺湲】 is a *variant reading*, not an author,
+        # and must not turn the poem into an anthology poem (Y1: a word
+        # that looks like a marker is not always one -- check each case).
         quotes = re.findall(r'【([\u4e00-\u9fff]{2,4})】', e['body'])
-        if quotes:
+        real_quotes = [q for q in quotes if not VARIANT_MARKER.search(q)]
+        if real_quotes:
             e['kind'] = 'jiju'
-            e['quotes'] = quotes
+            e['quotes'] = real_quotes
             e['body'] = re.sub(r'【[\u4e00-\u9fff]{2,4}】', '', e['body'])
             e['sub'] = '集句'
+
+        # 校语 and 异文: an editorial bracket that follows the verse.
+        e['body'] = re.sub(r'\u3010[^\u3011]*(?:\u4e00\u4f5c|\u4e00\u4e91|'
+                           r'\u6216\u523b|\u65e7\u523b|\u539f\u523b|\u523b\u672c|'
+                           r'\u65e7\u672c|\u6821|\u6309|\u8c28\u6309|'
+                           r'\u9617)[^\u3011]*\u3011', '', e['body'])
+
+        # A trailing editorial bracket of any remaining shape.
+        e['body'] = re.sub(r'\u3010[^\u3011]*\u3011', '', e['body'])
+        e['body'] = e['body'].replace('\u3000', '')
         e['body'] = e['body'].strip()
         e['stanzas'] = split_stanzas(e['body'])
         e['norm'] = ''.join(CJK.findall(e['body']))

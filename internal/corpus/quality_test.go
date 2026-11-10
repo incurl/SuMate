@@ -209,3 +209,54 @@ func lastN(s string, n int) string {
 	}
 	return fmt.Sprintf("%s", string(r[len(r)-n:]))
 }
+
+// TestBaseTextLayering checks that the layers of the 四库 transmission are
+// separated rather than merged into the verse.
+//
+// The transmission contains three kinds of material beyond the verse
+// itself: missing characters (【原缺】), quoted authors of a 集句, and
+// editorial notes.  Merging any of them into the verse corrupts the
+// character count and therefore the 词牌↔字数 correspondence.
+func TestBaseTextLayering(t *testing.T) {
+	c, _ := Load()
+
+	kinds := map[string]int{}
+	for _, p := range c.Poems {
+		kinds[p.Kind]++
+	}
+	if kinds["jiju"] == 0 {
+		t.Error("no 集句 poems were detected")
+	}
+	if kinds["normal"] == 0 {
+		t.Error("no ordinary poems were detected")
+	}
+
+	// A 集句 names its quoted poets.
+	for _, p := range c.Poems {
+		if p.Kind != "jiju" {
+			continue
+		}
+		if len(p.Quotes) == 0 {
+			t.Errorf("the 集句 %s (%s) names no poet", p.Tune, p.Title)
+		}
+		for _, q := range p.Quotes {
+			// A quoted author is a person, never a note about the text.
+			if strings.Contains(q, "一作") || strings.Contains(q, "或刻") {
+				t.Errorf("the 集句 %s quotes %q, which is a variant reading", p.Tune, q)
+			}
+		}
+	}
+
+	// Missing characters are counted, never invented.
+	for _, p := range c.Poems {
+		if p.Lacunae > 0 && p.Kind == "normal" {
+			continue // a poem may be both incomplete and ordinary
+		}
+		if p.Lacunae > 0 && p.HasText {
+			// The counted gap must not appear as a bracket in the verse.
+			if strings.Contains(p.Text, "【") {
+				t.Errorf("the incomplete verse %s still carries a bracket", p.ID)
+			}
+		}
+	}
+}

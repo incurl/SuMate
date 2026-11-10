@@ -40,6 +40,11 @@ run_audit() {
     go run ./cmd/audit
 }
 
+run_vocab() {
+    echo "==> 审计词表（现代口语覆盖率）"
+    python3 tools/audit_modern_vocab.py
+}
+
 run_frontend() {
     echo "==> 校验前端"
     ( cd frontend && npm run typecheck && npm run test )
@@ -59,6 +64,7 @@ case "$STEP" in
     corpus)  run_corpus ;;
     lint)    run_lint ;;
     audit)   run_audit ;;
+    vocab)   run_vocab ;;
     gotest)  run_gotest ;;
     frontend) run_frontend ;;
     app)     run_build ;;
@@ -67,11 +73,12 @@ case "$STEP" in
         run_lint
         run_gotest
         run_audit
+        run_vocab
         run_frontend
         run_build
         ;;
     *)
-        echo "usage: $0 [all|corpus|lint|gotest|audit|frontend|app]" >&2
+        echo "usage: $0 [all|corpus|lint|gotest|audit|vocab|frontend|app]" >&2
         exit 2
         ;;
 esac

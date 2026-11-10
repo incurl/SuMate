@@ -50,6 +50,28 @@ func Concepts() map[ConceptKey]Concept {
 	for _, x := range lastConcepts {
 		c[x.Key] = x
 	}
+	// The modern colloquial triggers are folded in here rather than kept
+	// apart, so that every consumer of the lexicon sees one vocabulary.
+	for key, words := range modernByConcept() {
+		x, ok := c[key]
+		if !ok {
+			continue
+		}
+		// Some modern words are already classical ones (倦, 当年, 过日子);
+		// adding them twice would break the "no repeated keyword" invariant.
+		seen := make(map[string]bool, len(x.Keywords))
+		for _, kw := range x.Keywords {
+			seen[kw] = true
+		}
+		for _, kw := range words {
+			if seen[kw] {
+				continue
+			}
+			seen[kw] = true
+			x.Keywords = append(x.Keywords, kw)
+		}
+		c[key] = x
+	}
 	return c
 }
 

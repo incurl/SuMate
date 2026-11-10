@@ -446,28 +446,69 @@ func semanticScore(v model.Verse, sel Selection) float64 {
 // descriptionScore measures the overlap between the user's free text and the
 // verse's own vocabulary.
 func descriptionScore(v model.Verse, desc string) float64 {
-	descRunes := map[rune]bool{}
-	for _, r := range desc {
-		if r >= 0x4e00 && r <= 0x9fff {
-			descRunes[r] = true
-		}
-	}
-	if len(descRunes) == 0 {
+	// The description is mapped onto the concept lexicon first, and the
+	// verse is then scored by the concepts it carries.
+	//
+	// The earlier version intersected *single characters* with the keywords.
+	// Because words like 我 / 了 / 想 appear in a large share of the
+	// keywords, almost every description matched almost every verse, and
+	// five different descriptions returned the same line.  Going through the
+	// concepts fixes both the precision and the reasonability: the match
+	// says *which state* was understood.
+	cs := bridgeConcepts(desc)
+	if len(cs) == 0 {
 		return 0
 	}
 	hit := 0
-	for _, kw := range v.Annotation.Keywords {
-		for _, r := range kw {
-			if descRunes[r] {
-				hit++
-				break
-			}
+	for _, ck := range v.Annotation.Concepts {
+		if cs[ck] {
+			hit++
 		}
 	}
 	if hit == 0 {
 		return 0
 	}
-	return math.Min(1, float64(hit)/float64(len(v.Annotation.Keywords)+1))
+	// Scale by how much of the description was understood, so that a
+	// description naming two states does not beat one naming three.
+	return math.Min(1, float64(hit)/math.Sqrt(float64(len(cs)+1)))
+}
+
+// bridgeConcepts maps a free-text description onto the concept lexicon.
+//
+// A multi-character keyword that occurs in the description is strong
+// evidence; a single character is only consulted when no strong keyword
+// matched at all.  This is the same strong/weak distinction the annotation
+// engine applies to a verse.
+func bridgeConcepts(desc string) map[string]bool {
+	out := map[string]bool{}
+	concepts := curated.Concepts()
+	for key, c := range concepts {
+		for _, kw := range c.Keywords {
+			if len([]rune(kw)) < 2 {
+				continue
+			}
+			if strings.Contains(desc, kw) {
+				out[key] = true
+				break
+			}
+		}
+	}
+	if len(out) > 0 {
+		return out
+	}
+	// No specific phrase matched: fall back to single characters.
+	for key, c := range concepts {
+		for _, kw := range c.Keywords {
+			if len([]rune(kw)) != 1 {
+				continue
+			}
+			if strings.Contains(desc, kw) {
+				out[key] = true
+				break
+			}
+		}
+	}
+	return out
 }
 
 // buildReasons explains why a verse matches.

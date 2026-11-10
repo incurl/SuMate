@@ -1,59 +1,128 @@
-# Welcome to Your New Wails3 Project!
+# SuMate · 东坡嘴替
 
-Congratulations on generating your Wails3 application! This README will guide you through the next steps to get your project up and running.
+> 让苏轼的嘴，替你说那句说不出口的话。
 
-## Getting Started
+SuMate（东坡嘴替）不是一个诗词搜索框，而是一台**逐层挖掘的精神矿机**。
+用户不写关键词，而是通过五个维度的树形选择，一层层逼近自己此刻的状态——
+说不出口的愁、解不开的结、刚好的清闲——最终从三千余首苏轼词、两千余个
+最小匹配单元里，挖出**最懂你此刻的那一句**。
 
-1. Navigate to your project directory in the terminal.
+---
 
-2. To run your application in development mode, use the following command:
+## 一、它做了什么
 
-   ```
-   wails3 dev
-   ```
+| 能力 | 实现 |
+|---|---|
+| 全语料精标 | 钦定四库全书《东坡词》321 首、65 词牌、2230 句、376 联 |
+| 多维情感分级 | 正面 / 中性哲思 / 低回疗愈 三维 + 六种东坡专属气质，强度分四级 |
+| 五维标签树 | 143 个节点、4 层嵌套，五个根入口，全部节点可达 |
+| 逐层下钻 | 每一步实时刷新剩余候选数，面包屑可回溯、可重来 |
+| 任意层预览 | 不到叶子也能查看当前组合命中的全部诗句 |
+| 收敛匹配 | 语义契合 + 情绪共鸣 + 情境一致 + 东坡气质 四轴打分，输出 Top-1 + 2~3 备选 + 解释 |
+| 结构化输出 | 全部标注为 JSON 友好结构，字段预留计数统计位 |
 
-   This will start your application and enable hot-reloading for both frontend and backend changes.
+---
 
-3. To build your application for production, use:
+## 二、快速开始
 
-   ```
-   wails3 build
-   ```
+```bash
+# 构建并运行桌面应用
+wails3 build
+./bin/sumate
 
-   This will create a production-ready executable in the `build` directory.
+# 开发模式（热重载）
+wails3 dev
 
-## Exploring Wails3 Features
+# Go 测试
+go test ./internal/...
 
-Now that you have your project set up, it's time to explore the features that Wails3 offers:
+# 前端测试与构建
+cd frontend && npm install && node tests/state.test.mjs && npm run build
+```
 
-1. **Check out the examples**: The best way to learn is by example. Visit the `examples` directory in the `v3/examples` directory to see various sample applications.
+---
 
-2. **Run an example**: To run any of the examples, navigate to the example's directory and use:
+## 三、语料从哪来
 
-   ```
-   go run .
-   ```
+`东坡词.txt` 是**钦定四库全书**本《东坡词》：它给出权威的词牌、词题
+（含小序）与正文，但用的是繁体与异体字（収、囘、防……），且没有断句。
 
-   Note: Some examples may be under development during the alpha phase.
+`chinese-poetry` 的 `宋词/ci.db`（MIT）提供了同一批词的现代断句与标点。
 
-3. **Explore the documentation**: Visit the [Wails3 documentation](https://v3.wails.io/) for in-depth guides and API references.
+`tools/build_corpus.py` 把两者合并：
 
-4. **Join the community**: Have questions or want to share your progress? Join the [Wails Discord](https://discord.gg/JDdSxwjhGf) or visit the [Wails discussions on GitHub](https://github.com/wailsapp/wails/discussions).
+1. 解析四库正文——识别 `词牌【词题】`、`又【词题】`、`集句`、`原缺/阙文`
+   等各种体例，并处理词题内嵌在正文行中的情况；
+2. 与 `ci.db` 逐首对齐，用 `difflib` 的 opcode 做字符级映射，从而把标点
+   **投影**到四库原文上（四库用字保持不动）；
+3. 归一化为简体，并修正常见的四库异体字；
+4. 产出 `data/dongpo_corpus.json`。
 
-## Project Structure
+```bash
+python3 tools/build_corpus.py && ./tools/sync_corpus.sh
+```
 
-Take a moment to familiarize yourself with your project structure:
+---
 
-- `frontend/`: Contains your frontend code (HTML, CSS, JavaScript/TypeScript)
-- `main.go`: The entry point of your Go backend
-- `app.go`: Define your application structure and methods here
-- `wails.json`: Configuration file for your Wails project
+## 四、标注是怎么来的
 
-## Next Steps
+三层知识叠加：
 
-1. Modify the frontend in the `frontend/` directory to create your desired UI.
-2. Add backend functionality in `main.go`.
-3. Use `wails3 dev` to see your changes in real-time.
-4. When ready, build your application with `wails3 build`.
+1. **概念词典**（`internal/curated/knowledge.go`）——45 个语义概念，把古典意象
+   翻译成机器可读的单位。每个概念带表层义、深层意境、哲理内涵、态度、
+   极性、情绪、东坡气质、标签与触发关键词。
+2. **历史层**（`internal/corpus/history.go`）——从词题推导年代、地点与人生阶段。
+   干支年（丙辰中秋）通过六十甲子循环反查；名篇另有一份「词牌 + 标志性字句」
+   的考据表，补足四库词题没有写下的年份与地名。
+3. **人工校订**（`internal/curated/overrides.go`）——《水调歌头》《定风波》
+   等重名篇的逐句精读，覆盖自动推导给出的文字。
 
-Happy coding with Wails3! If you encounter any issues or have questions, don't hesitate to consult the documentation or reach out to the Wails community.
+标注引擎（`internal/annotate`）把它们合成为每句的完整档案：表层义、深层意境、
+哲理内涵、态度、极性、分级情绪、六种东坡气质、适用人群、情绪阈值、场景边界、
+疗愈属性，以及五个维度上的标签。
+
+---
+
+## 五、匹配算法
+
+刻意**不做关键词匹配**。四轴加权：
+
+| 轴 | 权重 | 含义 |
+|---|---|---|
+| 语义契合 | 0.30 | 意境与用户此刻状态的接近程度 |
+| 情绪共鸣 | 0.28 | 分级情绪画像与所选心境标签的吻合度 |
+| 情境一致 | 0.24 | 处境、地点、时令、人际标签的重叠度 |
+| 东坡气质 | 0.18 | 是否携带东坡式的豁达与超越 |
+
+另加一档产品偏置：优先带有疗愈、旷达、超越意味的句子——这是「东坡嘴替」
+与普通情感词典的区别。
+
+---
+
+## 六、目录结构
+
+```
+data/dongpo_corpus.json        合并后的语料（嵌入 Go 二进制）
+internal/
+  model/       领域类型（JSON 友好）
+  corpus/      语料加载、最小单元切分、历史推导
+  curated/     概念词典、情绪表、情态映射、人工校订
+  annotate/    标注引擎
+  tagtree/     五维标签树与过滤/计数
+  engine/      四轴匹配算法
+  service/     对前端的唯一入口
+cmd/dump/      审阅标注质量的开发工具
+frontend/      Wails v3 + TypeScript 前端
+tools/         语料构建脚本
+```
+
+---
+
+## 七、数据来源与致谢
+
+- 正文与词题：**钦定四库全书《东坡词》**（公有领域）
+- 断句与标点：[chinese-poetry](https://github.com/chinese-poetry/chinese-poetry)
+  `宋词/ci.db`，MIT License，© 2016 JackeyGao
+- 简体转换：[zhconv](https://pypi.org/project/zhconv/)
+
+本项目为独立实现，词学判断（年代考订、意境阐释）仅供参考，请以权威笺注为准。

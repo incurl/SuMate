@@ -10,6 +10,7 @@ import (
 
 	"github.com/incurl/sumate/internal/annotate"
 	"github.com/incurl/sumate/internal/corpus"
+	"github.com/incurl/sumate/internal/curated"
 	"github.com/incurl/sumate/internal/engine"
 	"github.com/incurl/sumate/internal/model"
 	"github.com/incurl/sumate/internal/philosophy"
@@ -235,6 +236,14 @@ func (s *Service) Match(path []tagtree.Filter, description string) model.MatchRe
 		}
 	}
 	return s.engine.MatchIn(pool, sel)
+}
+
+// ProductStance returns the position the product itself takes.
+//
+// A tool that promises to find your voice has a duty to declare what it
+// believes and when it cannot serve.
+func (s *Service) ProductStance() curated.ProductStance {
+	return curated.TheProductStance()
 }
 
 // PhilosophicalReading returns the philosophical assessment of the reader's

@@ -180,14 +180,35 @@ export function renderMatch(result: MatchResult): HTMLElement {
 
   const head = el("header", { class: "match__head" });
   head.appendChild(el("h2", { class: "match__title", text: "东坡嘴替" }));
-  head.appendChild(
+  const scoreBox = el("span", { class: "match__scorebox" });
+  scoreBox.appendChild(
     el("span", {
       class: "match__score",
       text: `${result.explanation.overall}`,
       attrs: { title: "综合匹配分" },
     }),
   );
+  // The confidence is separate from the score: a high score means "this
+  // verse fits the tags", a high confidence means "this is the one".
+  scoreBox.appendChild(
+    el("span", {
+      class: `match__confidence ${result.confident ? "is-confident" : "is-unsure"}`,
+      text: result.confident ? "合" : "未必",
+      attrs: {
+        title: `确信度 ${result.confidence}/100 —— 匹配分高只说明它符合标签，` +
+          `确信度才说明它是不是那一句`,
+      },
+    }),
+  );
+  head.appendChild(scoreBox);
   wrap.appendChild(head);
+
+  // The product's own honesty: when it is reaching, it says so.
+  if (result.honest) {
+    const honest = el("aside", { class: "honest" });
+    honest.appendChild(el("p", { class: "honest__text", text: result.honest }));
+    wrap.appendChild(honest);
+  }
 
   const p = result.primary;
   const quote = el("div", { class: "match__quote" });
@@ -335,5 +356,27 @@ export function renderReading(assessments: Assessment[]): HTMLElement {
     }
     wrap.appendChild(card);
   }
+  return wrap;
+}
+
+/**
+ * Render the product's own position.
+ *
+ * A tool that claims to find your voice has a duty to say when it cannot,
+ * and to say what it believes.  The stance is shown once, quietly, at the
+ * bottom of the reading panel.
+ */
+export function renderProductStance(s: {
+  name: string;
+  claim: string;
+  premise: string;
+  shadow: string;
+  refusal: string;
+}): HTMLElement {
+  const wrap = el("section", { class: "product" });
+  wrap.appendChild(el("h3", { class: "product__name", text: s.name }));
+  wrap.appendChild(el("p", { class: "product__claim", text: s.claim }));
+  wrap.appendChild(el("p", { class: "product__premise", text: `前提：${s.premise}` }));
+  wrap.appendChild(el("p", { class: "product__refusal", text: s.refusal }));
   return wrap;
 }

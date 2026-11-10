@@ -30,6 +30,7 @@ export const api = {
     path: Filter[],
   ): Promise<import("./philosophy").Assessment[]> =>
     orEmpty(await svc.PhilosophicalReading(path)),
+  productStance: async () => orZero(await svc.ProductStance()),
   verse: async (id: string): Promise<Verse> => orZero(await svc.Verse(id)),
   search: async (query: string, limit: number): Promise<Verse[]> =>
     orEmpty(await svc.Search(query, limit)),

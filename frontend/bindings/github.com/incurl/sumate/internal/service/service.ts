@@ -12,6 +12,9 @@ import { Call as $Call, CancellablePromise as $CancellablePromise } from "@wails
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
+import * as curated$0 from "../curated/models.js";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore: Unused imports
 import * as model$0 from "../model/models.js";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
@@ -66,6 +69,16 @@ export function PhilosophicalReading(path: tagtree$0.Filter[] | null): $Cancella
  */
 export function Preview(path: tagtree$0.Filter[] | null, limit: number): $CancellablePromise<model$0.Verse[] | null> {
     return $Call.ByID(1471342836, path, limit);
+}
+
+/**
+ * ProductStance returns the position the product itself takes.
+ * 
+ * A tool that promises to find your voice has a duty to declare what it
+ * believes and when it cannot serve.
+ */
+export function ProductStance(): $CancellablePromise<curated$0.ProductStance> {
+    return $Call.ByID(473907483);
 }
 
 /**

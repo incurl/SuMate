@@ -11,6 +11,7 @@ import {
   renderCrumbs,
   renderMatch,
   renderNode,
+  renderProductStance,
   renderReading,
   renderVerse,
 } from "./render";
@@ -42,6 +43,7 @@ const state: AppState = {
 
 let match: MatchResult | null = null;
 let previewOpen = false;
+let productStanceShown = false;
 
 // ---------------------------------------------------------------------------
 // DOM handles
@@ -115,6 +117,12 @@ async function refreshReading(): Promise<void> {
   const assessments = await api.philosophicalReading(state.path);
   clear(readingEl);
   readingEl.appendChild(renderReading(assessments));
+  // The product's own position is shown once, under the reading.
+  if (!productStanceShown) {
+    const stance = await api.productStance();
+    readingEl.appendChild(renderProductStance(stance));
+    productStanceShown = true;
+  }
 }
 
 // ---------------------------------------------------------------------------

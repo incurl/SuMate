@@ -51,7 +51,8 @@ html, body {
   grid-template-areas:
     "mast  mast"
     "tree  match"
-    "prev  match";
+    "prev  match"
+    "read  match";
   align-items: start;
 }
 
@@ -488,7 +489,7 @@ html, body {
 
 /* ------------------------------------------------ philosophical reading */
 .panel--reading {
-  grid-area: reading;
+  grid-area: read;
 }
 .reading-host { min-height: 60px; }
 .reading { display: grid; gap: 11px; }
@@ -566,4 +567,72 @@ html, body {
   .shell {
     grid-template-areas: "mast" "tree" "match" "reading" "prev";
   }
+}
+
+/* ------------------------------------------ confidence and honest note */
+.match__scorebox {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+}
+.match__confidence {
+  font-family: var(--serif);
+  font-size: 12px;
+  letter-spacing: .1em;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1px 9px;
+  color: var(--ink-soft);
+}
+.match__confidence.is-confident {
+  border-color: rgba(92,122,104,.5);
+  color: var(--celadon);
+}
+.match__confidence.is-unsure {
+  border-color: rgba(154,123,63,.55);
+  color: var(--gold);
+}
+.honest {
+  border: 1px dashed rgba(154,123,63,.45);
+  border-radius: 10px;
+  padding: 9px 13px 10px;
+  background: rgba(154,123,63,.05);
+}
+.honest__text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+/* ------------------------------------------------- the product's stance */
+.product {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+  display: grid;
+  gap: 5px;
+}
+.product__name {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 12.5px;
+  letter-spacing: .14em;
+  color: var(--ink-soft);
+  opacity: .8;
+}
+.product__claim {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.product__premise,
+.product__refusal {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  opacity: .68;
 }

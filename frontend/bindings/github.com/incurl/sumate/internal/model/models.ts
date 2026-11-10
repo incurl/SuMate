@@ -324,6 +324,23 @@ export interface MatchResult {
      * Candidates is the number of verses that were considered.
      */
     "candidates": number;
+
+    /**
+     * Confidence is how well the primary verse actually fits, 0-100.
+     * A low confidence means the product is reaching.
+     */
+    "confidence": number;
+
+    /**
+     * Confident reports whether the product stands behind this answer.
+     */
+    "confident": boolean;
+
+    /**
+     * Honest is the note the product adds when it is not confident: why
+     * the answer is weak, and what would make it better.
+     */
+    "honest": string;
 }
 
 /**

@@ -85,6 +85,14 @@ type MatchResult struct {
 	Explanation MatchExplanation `json:"explanation"`
 	// Candidates is the number of verses that were considered.
 	Candidates int `json:"candidates"`
+	// Confidence is how well the primary verse actually fits, 0-100.
+	// A low confidence means the product is reaching.
+	Confidence int `json:"confidence"`
+	// Confident reports whether the product stands behind this answer.
+	Confident bool `json:"confident"`
+	// Honest is the note the product adds when it is not confident: why
+	// the answer is weak, and what would make it better.
+	Honest string `json:"honest"`
 }
 
 // Stats summarises the loaded corpus.

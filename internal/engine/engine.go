@@ -97,7 +97,113 @@ func (e *Engine) Match(sel Selection) model.MatchResult {
 	for i := 1; i <= limit; i++ {
 		result.Alternatives = append(result.Alternatives, cands[i].Verse)
 	}
+	result.Confidence, result.Confident, result.Honest = confidence(cands, sel)
 	return result
+}
+
+// Confidence thresholds.
+//
+// Below the floor the product does not claim to have found the verse; it
+// says so.  Between floor and good the answer is offered with a caveat.
+const (
+	// Below the floor the product does not claim to have found the verse.
+	confidenceFloor = 32
+	// At or above the good threshold it stands behind the answer.
+	confidenceGood = 58
+)
+
+// confidence measures how well the top verse actually fits.
+//
+// The measure is deliberately conservative.  It looks at three things:
+//
+//   - the absolute score of the winner;
+//   - the *margin* over the runner-up, because a verse that barely beats
+//     its neighbour is not a confident answer;
+//   - whether the winner's philosophical premise holds.
+//
+// The margin matters most.  A product that only looked at the absolute
+// score would call a verse a perfect match whenever the whole corpus
+// happened to be mediocre.
+func confidence(cands []Candidate, sel Selection) (int, bool, string) {
+	if len(cands) == 0 {
+		return 0, false, ""
+	}
+	top := cands[0]
+	score := top.Score * 100
+
+	// The margin over the runner-up, expressed in points.
+	margin := 0.0
+	if len(cands) > 1 {
+		margin = (top.Score - cands[1].Score) * 100
+	}
+
+	// A philosophical mismatch costs the answer its confidence, because a
+	// consolation whose premise does not hold is not an answer.
+	philo := top.Parts
+	philosophyPenalty := 0.0
+	if len(philo.Caveats) > 0 {
+		philosophyPenalty = 12
+	}
+
+	// The score of the winner alone is a poor measure: the axes have
+	// baselines (an unmatched verse still scores 0.35 on semantics), so a
+	// bare selection would look confident.  The margin over the runner-up
+	// and the *specificity* of the selection carry the real information.
+	//
+	// Specificity is the fraction of the four axes that the user actually
+	// constrained: a mood alone constrains one, a mood plus a place plus a
+	// weather constrains three.
+	specificity := 0.0
+	if len(sel.Tags) > 0 {
+		for _, tags := range sel.Tags {
+			if len(tags) > 0 {
+				specificity++
+			}
+		}
+		specificity /= 3.0 // three dimensions is a full description
+		if specificity > 1 {
+			specificity = 1
+		}
+	}
+
+	conf := score*0.35 + margin*0.45 + specificity*30 - philosophyPenalty
+	if conf > 100 {
+		conf = 100
+	}
+	if conf < 0 {
+		conf = 0
+	}
+	c := int(conf)
+
+	if c >= confidenceGood {
+		return c, true, ""
+	}
+	if c < confidenceFloor {
+		// Below the floor the product says plainly that it is reaching.
+		return c, false, "这一句未必就是那一句。你的处境还没有被说到足够具体，" +
+			"我只能给出一个方向。再往细处选一层，或者写下你此刻的感觉，会更准。"
+	}
+
+	// The honest note: why the answer is weak, and what would fix it.
+	var reasons []string
+	if margin < 6 {
+		reasons = append(reasons, "几句与这一句其实差不多近")
+	}
+	if len(philo.Caveats) > 0 {
+		reasons = append(reasons, "这一句的前提与你的处境并不完全相合")
+	}
+	if specificity < 0.4 {
+		reasons = append(reasons, "你还没有说到具体的处境")
+	}
+	if score < 55 {
+		reasons = append(reasons, "现有的选择还不足以指向某一句")
+	}
+	note := "这一句未必就是那一句。"
+	if len(reasons) > 0 {
+		note += "（" + strings.Join(reasons, "；") + "）"
+	}
+	note += "再往细处选一层，或者写下你此刻的感觉，会更准。"
+	return c, false, note
 }
 
 // Rank scores every verse against the selection and returns them sorted.

@@ -50,14 +50,40 @@ export function deepestOf(path: Filter[], root: RootKey): Filter | null {
  * Append a node to the path inside its own root segment.
  *
  * The path is rebuilt so that the segments stay grouped and ordered by the
- * canonical root order.
+ * canonical root order.  A node that is a *descendant* of the deepest
+ * selected node in its root extends the segment; a node at a shallower level
+ * replaces the segment from that level down.
  */
 export function pushPath(path: Filter[], node: TreeNode): Filter[] {
-  // Drop any previous selection inside the same root: picking a new option
-  // at a shallower level replaces the deeper one.
-  const kept = path.filter((f) => f.Root !== node.root);
-  kept.push({ NodeID: node.id, Root: node.root });
-  return sortByRoot(kept);
+  const inRoot = path.filter((f) => f.Root === node.root);
+  const deepest = inRoot[inRoot.length - 1];
+
+  if (deepest && deepest.NodeID === node.id) {
+    // already selected: nothing to change
+    return path;
+  }
+
+  if (deepest && isDescendant(node.id, deepest.NodeID)) {
+    // drilling deeper: keep the whole segment and append
+    return sortByRoot([...path, { NodeID: node.id, Root: node.root }]);
+  }
+
+  // A different branch: keep the part of the segment that still leads to
+  // the new node (its ancestors) and drop the rest.
+  const keptAncestors = inRoot.filter(
+    (f) => f.NodeID === node.id || isDescendant(node.id, f.NodeID),
+  );
+  const others = path.filter((f) => f.Root !== node.root);
+  return sortByRoot([...others, ...keptAncestors, { NodeID: node.id, Root: node.root }]);
+}
+
+/**
+ * Reports whether `id` lies below `ancestor` in the tag tree.
+ *
+ * The tree ids are dotted paths, so a descendant is recognised by its prefix.
+ */
+export function isDescendant(id: string, ancestor: string): boolean {
+  return id.startsWith(ancestor + ".");
 }
 
 /** Order the path so that the root segments follow the canonical order. */

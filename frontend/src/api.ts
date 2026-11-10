@@ -31,6 +31,8 @@ export const api = {
   ): Promise<import("./philosophy").Assessment[]> =>
     orEmpty(await svc.PhilosophicalReading(path)),
   productStance: async () => orZero(await svc.ProductStance()),
+  unnamed: async (): Promise<import("./types").UnnamedShelf> =>
+    orZero(await svc.Unnamed()),
   verse: async (id: string): Promise<Verse> => orZero(await svc.Verse(id)),
   search: async (query: string, limit: number): Promise<Verse[]> =>
     orEmpty(await svc.Search(query, limit)),

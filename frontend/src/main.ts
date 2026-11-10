@@ -5,6 +5,7 @@
 // backtracking.  At any level the user may preview the current matches, and
 // at the leaf the system converges on one verse.
 import { api } from "./api";
+import { renderShelf } from "./shelf";
 import { clear, el } from "./dom";
 import {
   ROOT_LABEL,
@@ -44,6 +45,7 @@ const state: AppState = {
 let match: MatchResult | null = null;
 let previewOpen = false;
 let productStanceShown = false;
+let onShelf = false;
 
 // ---------------------------------------------------------------------------
 // DOM handles
@@ -57,6 +59,7 @@ const previewListEl = $("preview-list");
 const matchEl = $("match");
 const readingEl = $("reading");
 const rootsEl = $("roots");
+const shelfEntryEl = $("shelf-entry");
 const previewBtn = $("preview-btn") as HTMLButtonElement;
 const resetBtn = $("reset-btn") as HTMLButtonElement;
 const searchEl = $("search") as HTMLInputElement;
@@ -266,6 +269,9 @@ async function doSearch(): Promise<void> {
 }
 
 async function reset(): Promise<void> {
+  onShelf = false;
+  rootsEl.classList.remove("is-hidden");
+  hintEl.classList.remove("is-hidden");
   state.path = [];
   state.visible = [];
   state.preview = [];
@@ -276,7 +282,59 @@ async function reset(): Promise<void> {
   previewBtn.classList.remove("is-active");
   previewBtn.textContent = "预览当前匹配";
   await loadRoots();
+  await drawShelfEntry();
   drawPreview();
+}
+
+/**
+ * The entry to the shelf of unnamed verses.
+ *
+ * It is a door, not a sixth dimension: the five roots describe the reader's
+ * state, while the shelf holds the verses the taxonomy could not describe.
+ */
+async function drawShelfEntry(): Promise<void> {
+  clear(shelfEntryEl);
+  if (onShelf) return;
+  const shelf = await api.unnamed();
+  if (shelf.total === 0) return;
+  const btn = el("button", {
+    class: "shelf-entry__btn",
+    attrs: { type: "button" },
+  });
+  btn.appendChild(
+    el("span", {
+      class: "shelf-entry__label",
+      text: `另有 ${shelf.total} 句，未能命名`,
+    }),
+  );
+  btn.appendChild(
+    el("span", {
+      class: "shelf-entry__note",
+      text: "进不去五个维度，也从不出现于匹配",
+    }),
+  );
+  btn.appendChild(el("span", { class: "shelf-entry__arrow", text: "▸" }));
+  btn.addEventListener("click", () => void showShelf());
+  shelfEntryEl.appendChild(btn);
+}
+
+async function showShelf(): Promise<void> {
+  onShelf = true;
+  const shelf = await api.unnamed();
+  rootsEl.classList.add("is-hidden");
+  hintEl.classList.add("is-hidden");
+  clear(shelfEntryEl);
+  clear(treeEl);
+  clear(searchResultsEl);
+  treeEl.appendChild(renderShelf(shelf, () => void hideShelf()));
+}
+
+async function hideShelf(): Promise<void> {
+  onShelf = false;
+  rootsEl.classList.remove("is-hidden");
+  hintEl.classList.remove("is-hidden");
+  await loadRoots();
+  await drawShelfEntry();
 }
 
 function togglePreview(): void {
@@ -306,7 +364,14 @@ async function boot(): Promise<void> {
   });
 
   await loadRoots();
+  await drawShelfEntry();
   drawPreview();
+
+  // Deep link: /#shelf opens the shelf of unnamed verses directly, so that
+  // the corner of the corpus the taxonomy cannot reach is addressable.
+  if (window.location.hash === "#shelf") {
+    await showShelf();
+  }
 }
 
 void boot();

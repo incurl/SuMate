@@ -110,6 +110,23 @@ export function String(): $CancellablePromise<string> {
 }
 
 /**
+ * Unnamed returns the verses that no concept reached.
+ * 
+ * These are the edge of the taxonomy.  They cannot appear in the tag tree --
+ * a verse with no concept has no tags -- so without a shelf of their own they
+ * would be in the corpus but unreachable from the interface.  Giving them a
+ * place turns the blind spot into something a reader can walk into.
+ * 
+ * The groups are honest about why each verse is here.  Most are simply too
+ * short to carry an image; a few contain a glyph that occurs nowhere else in
+ * the corpus and may be corrupted; the rest are complete lines the lexicon
+ * has no concept for.
+ */
+export function Unnamed(): $CancellablePromise<model$0.UnnamedShelf> {
+    return $Call.ByID(2636699972);
+}
+
+/**
  * Verse returns a single verse by id.
  * 
  * The zero verse is returned when the id is unknown; the frontend renders

@@ -20,5 +20,8 @@ export type {
     PhilosophicalCaveat,
     Stats,
     TreeNode,
+    UnnamedGroup,
+    UnnamedShelf,
+    UnnamedVerse,
     Verse
 } from "./models.js";

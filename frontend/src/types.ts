@@ -14,6 +14,9 @@ export type {
   Strength,
   Tangent,
   TreeNode,
+  UnnamedGroup,
+  UnnamedShelf,
+  UnnamedVerse,
   Verse,
 } from "../bindings/github.com/incurl/sumate/internal/model/models";
 

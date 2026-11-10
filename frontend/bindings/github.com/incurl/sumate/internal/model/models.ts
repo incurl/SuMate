@@ -599,6 +599,98 @@ export interface TreeNode {
 }
 
 /**
+ * UnnamedGroup is one shelf of unnamed verses, grouped by reason.
+ */
+export interface UnnamedGroup {
+    /**
+     * Reason is the machine key.
+     */
+    "reason": string;
+
+    /**
+     * Label is the Chinese display name.
+     */
+    "label": string;
+
+    /**
+     * Note is an honest description of what this group contains.
+     */
+    "note": string;
+
+    /**
+     * Count is the number of verses in the group.
+     */
+    "count": number;
+
+    /**
+     * Verses are the verses themselves.
+     */
+    "verses": UnnamedVerse[] | null;
+}
+
+/**
+ * UnnamedShelf is the whole collection of unnamed verses.
+ */
+export interface UnnamedShelf {
+    /**
+     * Total is the number of unnamed verses.
+     */
+    "total": number;
+
+    /**
+     * Corpus is the total number of verses in the corpus.
+     */
+    "corpus": number;
+
+    /**
+     * Title is the display title of the shelf.
+     */
+    "title": string;
+
+    /**
+     * Preamble states honestly what the shelf is.
+     */
+    "preamble": string;
+
+    /**
+     * Groups are the verses, grouped by reason.
+     */
+    "groups": UnnamedGroup[] | null;
+}
+
+/**
+ * UnnamedVerse is a verse that no concept reached.
+ * 
+ * Every verse in the corpus is *retrievable*, but a verse is only
+ * *interpretable* if a concept matched it.  The ones that matched nothing
+ * cannot appear in the tag tree and therefore never surface in a normal
+ * drill-down.  They are not broken; they are the edge of the taxonomy.
+ */
+export interface UnnamedVerse {
+    /**
+     * Verse is the verse itself.
+     */
+    "verse": Verse;
+
+    /**
+     * Reason is the machine key for why nothing matched.
+     */
+    "reason": string;
+
+    /**
+     * Note is the sentence shown to the reader.
+     */
+    "note": string;
+
+    /**
+     * SuspectGlyph is a *hint*, not a verdict: the verse contains a
+     * character that occurs nowhere else in the corpus, so a corrupted
+     * glyph is one possible explanation for the miss.
+     */
+    "suspect_glyph": boolean;
+}
+
+/**
  * Verse is one minimal matching unit: a single classic line or a
  * symmetrical couplet.
  */

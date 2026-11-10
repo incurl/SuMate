@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+    <link rel="stylesheet" href="/style.css"/>
+    <title>SuMate 东坡嘴替</title>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<main class="shell">
+    <header class="masthead">
+        <div class="masthead__brand">
+            <h1 class="masthead__title">东坡嘴替</h1>
+            <p class="masthead__sub">SuMate · 逐层挖出最懂你此刻的那句东坡词</p>
+        </div>
+        <div class="masthead__meta">
+            <span id="stats" class="stats"></span>
+        </div>
+    </header>
+
+    <section class="panel panel--tree">
+        <div class="panel__bar">
+            <nav id="crumbs" class="crumbs" aria-label="筛选路径"></nav>
+            <div class="panel__actions">
+                <input id="search" class="search" type="search"
+                       placeholder="补一句此刻的感觉（可选）" aria-label="此刻的感觉"/>
+                <button id="preview-btn" class="btn btn--ghost" type="button">预览当前匹配</button>
+                <button id="reset-btn" class="btn btn--ghost" type="button">重来</button>
+            </div>
+        </div>
+        <p id="hint" class="hint">选择一个维度开始</p>
+        <div id="roots" class="roots" role="tablist" aria-label="五个维度"></div>
+        <div id="tree" class="tree"></div>
+        <div id="search-results" class="search-results"></div>
+    </section>
+
+    <section class="panel panel--preview">
+        <h2 class="panel__title">当前匹配</h2>
+        <div id="preview" class="preview">
+            <div id="preview-list" class="preview__list"></div>
+        </div>
+    </section>
+
+    <section class="panel panel--match">
+        <div id="match" class="match-host"></div>
+    </section>
+</main>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>

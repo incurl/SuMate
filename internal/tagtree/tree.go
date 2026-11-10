@@ -151,27 +151,15 @@ func (t *Tree) Apply(verses []VerseIndex, path []Filter) Result {
 // is empty the last selected node of the path is used, and when the path is
 // empty the roots are used.
 func (t *Tree) ApplyAt(verses []VerseIndex, path []Filter, focus string) Result {
-	// Collect, per root dimension, the set of tag ids that were selected.
-	byRoot := map[model.RootKey]map[string]bool{}
-	for _, f := range path {
-		if byRoot[f.Root] == nil {
-			byRoot[f.Root] = map[string]bool{}
-		}
-		byRoot[f.Root][f.NodeID] = true
-	}
-
 	kept := make([]string, 0, len(verses))
 	for _, v := range verses {
+		// Every selected node must match: drilling deeper inside a dimension
+		// narrows the result, and entering another dimension narrows it
+		// further.  Because a node's subtree is a subset of its parent's,
+		// the conjunction of the path is exactly what the user expects.
 		match := true
-		for root, tags := range byRoot {
-			hit := false
-			for id := range tags {
-				if v.Has(root, id) {
-					hit = true
-					break
-				}
-			}
-			if !hit {
+		for _, f := range path {
+			if !v.Has(f.Root, f.NodeID) {
 				match = false
 				break
 			}

@@ -215,15 +215,18 @@ func (s *Service) Match(path []tagtree.Filter, description string) model.MatchRe
 }
 
 // Verse returns a single verse by id.
-func (s *Service) Verse(id string) (model.Verse, bool) {
+//
+// The zero verse is returned when the id is unknown; the frontend renders
+// that as an empty card rather than having to deal with an error channel.
+func (s *Service) Verse(id string) model.Verse {
 	s.mu.RLock()
 	defer s.mu.RUnlock()
 	for _, v := range s.verses {
 		if v.ID == id {
-			return v, true
+			return v
 		}
 	}
-	return model.Verse{}, false
+	return model.Verse{}
 }
 
 // Search returns verses whose text or concepts match the query.

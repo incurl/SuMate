@@ -44,6 +44,12 @@ func Concepts() map[ConceptKey]Concept {
 	for _, x := range conceptList {
 		c[x.Key] = x
 	}
+	for _, x := range extraConcepts {
+		c[x.Key] = x
+	}
+	for _, x := range lastConcepts {
+		c[x.Key] = x
+	}
 	return c
 }
 

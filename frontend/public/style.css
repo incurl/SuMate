@@ -636,3 +636,11 @@ html, body {
   color: var(--ink-soft);
   opacity: .68;
 }
+.stance__earned {
+  margin: 5px 0 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  opacity: .6;
+  font-style: italic;
+}

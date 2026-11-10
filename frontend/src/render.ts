@@ -354,6 +354,13 @@ export function renderReading(assessments: Assessment[]): HTMLElement {
         el("p", { class: "stance__shadow", text: `若前提不在：${a.shadow}` }),
       );
     }
+    // The condition under which Su Dongpo could say it at all.  This is
+    // what separates a stance from a slogan: it was earned somewhere.
+    if (a.earned) {
+      card.appendChild(
+        el("p", { class: "stance__earned", text: `东坡写这句时：${a.earned}` }),
+      );
+    }
     wrap.appendChild(card);
   }
   return wrap;

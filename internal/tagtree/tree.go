@@ -141,6 +141,16 @@ type Result struct {
 // once the user commits to a mood, the location options narrow down to the
 // verses that can actually speak that mood.
 func (t *Tree) Apply(verses []VerseIndex, path []Filter) Result {
+	return t.ApplyAt(verses, path, "")
+}
+
+// ApplyAt filters the verses by the given selection path and computes the
+// remaining counts for the children of `focus`.
+//
+// `focus` is the node whose children the caller wants to display.  When it
+// is empty the last selected node of the path is used, and when the path is
+// empty the roots are used.
+func (t *Tree) ApplyAt(verses []VerseIndex, path []Filter, focus string) Result {
 	// Collect, per root dimension, the set of tag ids that were selected.
 	byRoot := map[model.RootKey]map[string]bool{}
 	for _, f := range path {
@@ -171,16 +181,14 @@ func (t *Tree) Apply(verses []VerseIndex, path []Filter) Result {
 		}
 	}
 
-	// Remaining counts for the children of the last selected node.
+	// Remaining counts for the children of the focused node.
 	counts := map[string]int{}
-	keptSet := map[string]bool{}
-	for _, id := range kept {
-		keptSet[id] = true
+	focusID := focus
+	if focusID == "" && len(path) > 0 {
+		focusID = path[len(path)-1].NodeID
 	}
-	if len(path) > 0 {
-		last := path[len(path)-1]
-		node, ok := t.nodes[last.NodeID]
-		if ok {
+	if focusID != "" {
+		if node, ok := t.nodes[focusID]; ok {
 			for _, childID := range node.Children {
 				counts[childID] = t.countMatching(kept, childID, verses)
 			}

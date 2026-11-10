@@ -1,6 +1,7 @@
 // Rendering of the tree nodes, the breadcrumb, the preview list and the
 // match card.
 import { clear, el, replace } from "./dom";
+import { FIT_LABEL, type Assessment } from "./philosophy";
 import type { Breadcrumb, TreeNode, Verse } from "./types";
 import type { MatchResult } from "./types";
 
@@ -208,6 +209,22 @@ export function renderMatch(result: MatchResult): HTMLElement {
   quote.appendChild(meta);
   wrap.appendChild(quote);
 
+  // The caveat comes first: before the product explains why the verse fits,
+  // it says when it would not.  The order is the point.
+  for (const cav of result.explanation.caveats ?? []) {
+    const box = el("aside", { class: "caveat" });
+    box.appendChild(
+      el("span", { class: "caveat__label", text: "但这一句有前提" }),
+    );
+    box.appendChild(el("p", { class: "caveat__note", text: cav.note }));
+    if (cav.earned) {
+      box.appendChild(
+        el("p", { class: "caveat__earned", text: `东坡写这句时：${cav.earned}` }),
+      );
+    }
+    wrap.appendChild(box);
+  }
+
   const a = p.annotation;
   const reading = el("div", { class: "match__reading" });
   reading.appendChild(el("h3", { text: "为什么是这一句" }));
@@ -279,3 +296,44 @@ export function renderInto(container: HTMLElement, children: HTMLElement[]): voi
 }
 
 export { clear };
+
+/**
+ * Render the philosophical reading of the reader's situation.
+ *
+ * This is the deepest layer of the product: not "which verse fits", but
+ * "which positions on how to live are open to you right now, and on what
+ * condition".
+ */
+export function renderReading(assessments: Assessment[]): HTMLElement {
+  const wrap = el("section", { class: "reading" });
+  wrap.appendChild(el("h2", { class: "reading__title", text: "此刻可用的立场" }));
+  if (assessments.length === 0) {
+    wrap.appendChild(
+      el("p", {
+        class: "reading__empty",
+        text: "走得再深一些，这里会显出此刻对你开放的那些活法。",
+      }),
+    );
+    return wrap;
+  }
+  for (const a of assessments) {
+    const card = el("article", { class: `stance stance--${a.fit}` });
+    const head = el("header", { class: "stance__head" });
+    head.appendChild(el("h3", { class: "stance__name", text: a.name }));
+    head.appendChild(
+      el("span", { class: "stance__fit", text: FIT_LABEL[a.fit] ?? a.fit }),
+    );
+    card.appendChild(head);
+    card.appendChild(el("p", { class: "stance__claim", text: a.claim }));
+    card.appendChild(
+      el("p", { class: "stance__premise", text: `前提：${a.premise}` }),
+    );
+    if (a.fit === "failed" || a.fit === "strained") {
+      card.appendChild(
+        el("p", { class: "stance__shadow", text: `若前提不在：${a.shadow}` }),
+      );
+    }
+    wrap.appendChild(card);
+  }
+  return wrap;
+}

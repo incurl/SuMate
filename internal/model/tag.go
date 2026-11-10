@@ -68,6 +68,11 @@ type MatchExplanation struct {
 	Reasons []string `json:"reasons"`
 	// MatchedTags lists the tags that contributed to the score.
 	MatchedTags []string `json:"matched_tags"`
+	// Caveats are the philosophical warnings attached to this match: the
+	// conditions under which the verse would *not* speak for the reader.
+	Caveats []PhilosophicalCaveat `json:"caveats"`
+	// Philosophy is the prose summary of the philosophical situation.
+	Philosophy string `json:"philosophy"`
 }
 
 // MatchResult is the output of the final convergence matching rule.

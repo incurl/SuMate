@@ -15,6 +15,9 @@ import { Call as $Call, CancellablePromise as $CancellablePromise } from "@wails
 import * as model$0 from "../model/models.js";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore: Unused imports
+import * as philosophy$0 from "../philosophy/models.js";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore: Unused imports
 import * as tagtree$0 from "../tagtree/models.js";
 
 /**
@@ -43,6 +46,18 @@ export function Children(nodeID: string, path: tagtree$0.Filter[] | null): $Canc
  */
 export function Match(path: tagtree$0.Filter[] | null, description: string): $CancellablePromise<model$0.MatchResult> {
     return $Call.ByID(2284232017, path, description);
+}
+
+/**
+ * PhilosophicalReading returns the philosophical assessment of the reader's
+ * current situation.
+ * 
+ * It answers the question the tree cannot: not "which verses mention this",
+ * but "which positions on how to live are available to you right now, and
+ * on what condition".
+ */
+export function PhilosophicalReading(path: tagtree$0.Filter[] | null): $CancellablePromise<philosophy$0.Assessment[] | null> {
+    return $Call.ByID(1190477939, path);
 }
 
 /**

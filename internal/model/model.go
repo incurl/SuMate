@@ -177,6 +177,32 @@ type Annotation struct {
 	Keywords []string `json:"keywords"`
 	// Tags maps a root dimension to the leaf tag ids of that dimension.
 	Tags map[RootKey][]string `json:"tags"`
+	// Stances are the philosophical positions the verse takes about how to
+	// live.  A stance is not a mood: it is a claim, with a premise.
+	Stances []string `json:"stances"`
+}
+
+// PhilosophicalCaveat is the product's warning that a verse may not fit.
+//
+// A verse whose philosophical premise does not hold for the reader can
+// still be a good line -- but serving it as comfort without saying so
+// would be dishonest.  The caveat travels with the match.
+type PhilosophicalCaveat struct {
+	// Stance is the key of the stance.
+	Stance string `json:"stance"`
+	// Name is the display name.
+	Name string `json:"name"`
+	// Fit is how well the premise matches the reader: held / strained /
+	// unknown / failed.
+	Fit string `json:"fit"`
+	// Premise is what must hold for the stance to help.
+	Premise string `json:"premise"`
+	// Shadow is what the stance becomes when the premise fails.
+	Shadow string `json:"shadow"`
+	// Earned describes the condition under which Su Dongpo could say it.
+	Earned string `json:"earned"`
+	// Note is the sentence shown to the reader.
+	Note string `json:"note"`
 }
 
 // Verse is one minimal matching unit: a single classic line or a

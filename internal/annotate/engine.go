@@ -274,6 +274,12 @@ func (e *Engine) Annotate(v *model.Verse, poem model.Poem) model.Annotation {
 		a.Healing = "留白式慰藉"
 	}
 
+	// --- stances: the philosophical positions the verse takes.
+	//
+	// A stance is derived from the concepts the verse matched, so it is
+	// always traceable back to a hand-written claim rather than inferred.
+	a.Stances = stanceKeys(a.Concepts)
+
 	// --- tags, grouped by root dimension.
 	a.Tags = map[model.RootKey][]string{}
 	for tag := range tagSet {
@@ -355,5 +361,30 @@ func splitSentences(text string) []string {
 			out = append(out, s)
 		}
 	}
+	return out
+}
+
+// stanceKeys returns the philosophical stances carried by a set of concepts.
+func stanceKeys(concepts []string) []string {
+	idx := curated.StanceKeys()
+	seen := map[string]bool{}
+	var out []string
+	for _, ck := range concepts {
+		for _, st := range idx[ck] {
+			if seen[st] {
+				continue
+			}
+			seen[st] = true
+			out = append(out, st)
+		}
+	}
+	// Keep the canonical order so that the annotation is deterministic.
+	order := map[string]int{}
+	for i, k := range curated.StanceOrder {
+		order[k] = i
+	}
+	sort.SliceStable(out, func(i, j int) bool {
+		return order[out[i]] < order[out[j]]
+	})
 	return out
 }

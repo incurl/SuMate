@@ -81,6 +81,12 @@ export interface Annotation {
      * Tags maps a root dimension to the leaf tag ids of that dimension.
      */
     "tags": { [_ in RootKey]?: string[] | null } | null;
+
+    /**
+     * Stances are the philosophical positions the verse takes about how to
+     * live.  A stance is not a mood: it is a claim, with a premise.
+     */
+    "stances": string[] | null;
 }
 
 /**
@@ -282,6 +288,17 @@ export interface MatchExplanation {
      * MatchedTags lists the tags that contributed to the score.
      */
     "matched_tags": string[] | null;
+
+    /**
+     * Caveats are the philosophical warnings attached to this match: the
+     * conditions under which the verse would *not* speak for the reader.
+     */
+    "caveats": PhilosophicalCaveat[] | null;
+
+    /**
+     * Philosophy is the prose summary of the philosophical situation.
+     */
+    "philosophy": string;
 }
 
 /**
@@ -307,6 +324,51 @@ export interface MatchResult {
      * Candidates is the number of verses that were considered.
      */
     "candidates": number;
+}
+
+/**
+ * PhilosophicalCaveat is the product's warning that a verse may not fit.
+ * 
+ * A verse whose philosophical premise does not hold for the reader can
+ * still be a good line -- but serving it as comfort without saying so
+ * would be dishonest.  The caveat travels with the match.
+ */
+export interface PhilosophicalCaveat {
+    /**
+     * Stance is the key of the stance.
+     */
+    "stance": string;
+
+    /**
+     * Name is the display name.
+     */
+    "name": string;
+
+    /**
+     * Fit is how well the premise matches the reader: held / strained /
+     * unknown / failed.
+     */
+    "fit": string;
+
+    /**
+     * Premise is what must hold for the stance to help.
+     */
+    "premise": string;
+
+    /**
+     * Shadow is what the stance becomes when the premise fails.
+     */
+    "shadow": string;
+
+    /**
+     * Earned describes the condition under which Su Dongpo could say it.
+     */
+    "earned": string;
+
+    /**
+     * Note is the sentence shown to the reader.
+     */
+    "note": string;
 }
 
 /**

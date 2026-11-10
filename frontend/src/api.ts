@@ -26,6 +26,10 @@ export const api = {
     orEmpty(await svc.Breadcrumb(path)),
   match: async (path: Filter[], description: string): Promise<MatchResult> =>
     orZero(await svc.Match(path, description)),
+  philosophicalReading: async (
+    path: Filter[],
+  ): Promise<import("./philosophy").Assessment[]> =>
+    orEmpty(await svc.PhilosophicalReading(path)),
   verse: async (id: string): Promise<Verse> => orZero(await svc.Verse(id)),
   search: async (query: string, limit: number): Promise<Verse[]> =>
     orEmpty(await svc.Search(query, limit)),

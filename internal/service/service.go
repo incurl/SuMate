@@ -12,6 +12,7 @@ import (
 	"github.com/incurl/sumate/internal/corpus"
 	"github.com/incurl/sumate/internal/engine"
 	"github.com/incurl/sumate/internal/model"
+	"github.com/incurl/sumate/internal/philosophy"
 	"github.com/incurl/sumate/internal/tagtree"
 )
 
@@ -234,6 +235,23 @@ func (s *Service) Match(path []tagtree.Filter, description string) model.MatchRe
 		}
 	}
 	return s.engine.MatchIn(pool, sel)
+}
+
+// PhilosophicalReading returns the philosophical assessment of the reader's
+// current situation.
+//
+// It answers the question the tree cannot: not "which verses mention this",
+// but "which positions on how to live are available to you right now, and
+// on what condition".
+func (s *Service) PhilosophicalReading(path []tagtree.Filter) []philosophy.Assessment {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	tags := map[model.RootKey][]string{}
+	for _, f := range path {
+		tags[f.Root] = append(tags[f.Root], f.NodeID)
+	}
+	return philosophy.AssessAll(philosophy.Reader{Tags: tags})
 }
 
 // Verse returns a single verse by id.

@@ -17,6 +17,7 @@ export type {
     Era,
     MatchExplanation,
     MatchResult,
+    PhilosophicalCaveat,
     Stats,
     TreeNode,
     Verse

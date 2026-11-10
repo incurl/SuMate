@@ -11,6 +11,7 @@ import {
   renderCrumbs,
   renderMatch,
   renderNode,
+  renderReading,
   renderVerse,
 } from "./render";
 import {
@@ -52,6 +53,7 @@ const treeEl = $("tree");
 const crumbsEl = $("crumbs");
 const previewListEl = $("preview-list");
 const matchEl = $("match");
+const readingEl = $("reading");
 const rootsEl = $("roots");
 const previewBtn = $("preview-btn") as HTMLButtonElement;
 const resetBtn = $("reset-btn") as HTMLButtonElement;
@@ -106,6 +108,13 @@ async function showDimension(root: RootKey): Promise<void> {
 async function refreshPreview(): Promise<void> {
   state.preview = await api.preview(state.path, 60);
   state.crumbs = await api.breadcrumb(state.path);
+  await refreshReading();
+}
+
+async function refreshReading(): Promise<void> {
+  const assessments = await api.philosophicalReading(state.path);
+  clear(readingEl);
+  readingEl.appendChild(renderReading(assessments));
 }
 
 // ---------------------------------------------------------------------------

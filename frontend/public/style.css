@@ -455,3 +455,115 @@ html, body {
   line-height: 1;
 }
 .root-tab.is-active .root-tab__dot { color: var(--cinnabar-l); }
+
+/* ------------------------------------------- philosophical layer (caveat) */
+.caveat {
+  border-left: 3px solid var(--gold);
+  background: rgba(154, 123, 63, .07);
+  border-radius: 0 9px 9px 0;
+  padding: 10px 13px 11px;
+  display: grid;
+  gap: 4px;
+}
+.caveat__label {
+  font-family: var(--serif);
+  font-size: 11.5px;
+  letter-spacing: .14em;
+  color: var(--gold);
+}
+.caveat__note {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.caveat__earned {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  opacity: .62;
+  font-style: italic;
+}
+
+/* ------------------------------------------------ philosophical reading */
+.panel--reading {
+  grid-area: reading;
+}
+.reading-host { min-height: 60px; }
+.reading { display: grid; gap: 11px; }
+.reading__title {
+  margin: 0 0 2px;
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  color: var(--ink-soft);
+}
+.reading__empty {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  opacity: .6;
+}
+.stance {
+  border: 1px solid var(--line);
+  border-left-width: 3px;
+  border-radius: 0 10px 10px 0;
+  background: rgba(255,255,255,.5);
+  padding: 11px 14px 12px;
+}
+.stance--held     { border-left-color: var(--celadon); }
+.stance--strained { border-left-color: var(--gold); }
+.stance--unknown  { border-left-color: var(--line); }
+.stance--failed   { border-left-color: rgba(28,26,23,.2); opacity: .62; }
+.stance__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+.stance__name {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+.stance__fit {
+  font-size: 10.5px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 1px 8px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.stance--held .stance__fit { border-color: rgba(92,122,104,.5); color: var(--celadon); }
+.stance--strained .stance__fit { border-color: rgba(154,123,63,.55); color: var(--gold); }
+.stance__claim {
+  margin: 0 0 4px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.stance__premise {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  opacity: .8;
+}
+.stance__shadow {
+  margin: 4px 0 0;
+  font-size: 11.5px;
+  line-height: 1.7;
+  color: var(--cinnabar);
+  opacity: .82;
+}
+
+@media (max-width: 1000px) {
+  .shell {
+    grid-template-areas: "mast" "tree" "match" "reading" "prev";
+  }
+}

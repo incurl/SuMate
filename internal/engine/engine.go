@@ -24,6 +24,7 @@ import (
 
 	"github.com/incurl/sumate/internal/curated"
 	"github.com/incurl/sumate/internal/model"
+	"github.com/incurl/sumate/internal/philosophy"
 )
 
 // Weights of the four scoring axes.
@@ -67,13 +68,15 @@ type Selection struct {
 
 // scored holds the intermediate result of scoring one verse.
 type scored struct {
-	v         model.Verse
-	semantic  float64
-	emotional float64
-	scenario  float64
-	temperam  float64
-	hits      []string
-	reasons   []string
+	v          model.Verse
+	semantic   float64
+	emotional  float64
+	scenario   float64
+	temperam   float64
+	philosophy float64
+	hits       []string
+	reasons    []string
+	caveats    []model.PhilosophicalCaveat
 }
 
 // Match ranks the verses against the selection and returns the top result
@@ -117,6 +120,8 @@ func (e *Engine) Rank(sel Selection, limit int) []Candidate {
 			Temperament: int(math.Round(s.temperam * 100)),
 			Reasons:     s.reasons,
 			MatchedTags: s.hits,
+			Caveats:     s.caveats,
+			Philosophy:  philosophySummary(s.caveats),
 		}
 		out = append(out, Candidate{
 			Verse:  s.v,
@@ -141,6 +146,10 @@ func (s scored) total() float64 {
 	// The product's own bias: prefer verses that carry Dongpo's healing
 	// attitude, so the answer always sounds like Dongpo.
 	base += 0.04 * s.temperam
+	// The philosophical fit.  A verse that would mislead is demoted rather
+	// than hidden: the user still sees the caveat, but a verse whose
+	// premise holds wins.
+	base += 0.06 * s.philosophy
 	if base > 1 {
 		base = 1
 	}
@@ -203,6 +212,16 @@ func (e *Engine) score(v model.Verse, sel Selection) scored {
 
 	// --- temperament axis: Dongpo's own spiritual signature.
 	s.temperam = temperamentScore(a)
+
+	// --- philosophical axis: does this verse actually apply to them?
+	//
+	// This is the product's honesty check.  A verse that says 「此处心安即吾乡」
+	// is comfort to a reader who has nowhere else to stand; to a reader who
+	// still has a road to travel it is an excuse not to walk.  The verse
+	// is not demoted out of sight -- it is demoted *with its caveat*, so the
+	// reader can judge for themselves.
+	reader := philosophy.Reader{Tags: sel.Tags}
+	s.philosophy, s.caveats = stanceScore(v, reader)
 
 	if len(s.reasons) == 0 {
 		s.reasons = e.buildReasons(v, sel)
@@ -405,4 +424,72 @@ func strengthLabel(s model.Strength) string {
 func (e *Engine) MatchIn(pool []model.Verse, sel Selection) model.MatchResult {
 	sub := &Engine{verses: pool}
 	return sub.Match(sel)
+}
+
+// stanceScore measures how well a verse's philosophical stance fits
+// the reader, and collects the caveats.
+//
+// The score rewards a verse whose stance holds for the reader and penalises
+// one whose premise has failed.  A verse with no stance at all gets a
+// middling score: it is not wrong, it simply does not speak to the
+// question.
+func stanceScore(v model.Verse, reader philosophy.Reader) (float64, []model.PhilosophicalCaveat) {
+	stances := v.Annotation.Stances
+	if len(stances) == 0 {
+		return 0.5, nil
+	}
+	lex := curated.Stances()
+
+	var sum float64
+	var caveats []model.PhilosophicalCaveat
+	for _, key := range stances {
+		st, ok := lex[key]
+		if !ok {
+			continue
+		}
+		a := philosophy.Assess(st, reader)
+		switch a.Fit {
+		case philosophy.FitHeld:
+			sum += 1.0
+		case philosophy.FitStrained:
+			sum += 0.6
+		case philosophy.FitUnknown:
+			sum += 0.5
+		case philosophy.FitFailed:
+			sum += 0.15
+			caveats = append(caveats, model.PhilosophicalCaveat{
+				Stance:  a.Stance,
+				Name:    a.Name,
+				Fit:     string(a.Fit),
+				Premise: a.Premise,
+				Shadow:  a.Shadow,
+				Earned:  a.Earned,
+				Note:    a.Note,
+			})
+		}
+	}
+	if sum == 0 {
+		return 0.5, caveats
+	}
+	return sum / float64(len(stances)), caveats
+}
+
+// philosophySummary composes the prose shown above the match.
+//
+// The product's promise is that Su Dongpo speaks *for* the user.  That
+// promise is only kept if the product also says when it cannot: a verse
+// whose premise does not hold for this reader is shown together with the
+// condition under which it would.
+func philosophySummary(caveats []model.PhilosophicalCaveat) string {
+	if len(caveats) == 0 {
+		return ""
+	}
+	var b strings.Builder
+	for i, c := range caveats {
+		if i > 0 {
+			b.WriteString("\n")
+		}
+		b.WriteString(c.Note)
+	}
+	return b.String()
 }

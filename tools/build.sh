@@ -35,6 +35,11 @@ run_gotest() {
     go test ./internal/...
 }
 
+run_audit() {
+    echo "==> 审计匹配引擎（各轴是否真的在区分）"
+    go run ./cmd/audit
+}
+
 run_frontend() {
     echo "==> 校验前端"
     ( cd frontend && npm run typecheck && npm run test )
@@ -53,6 +58,7 @@ run_build() {
 case "$STEP" in
     corpus)  run_corpus ;;
     lint)    run_lint ;;
+    audit)   run_audit ;;
     gotest)  run_gotest ;;
     frontend) run_frontend ;;
     app)     run_build ;;
@@ -60,11 +66,12 @@ case "$STEP" in
         run_corpus
         run_lint
         run_gotest
+        run_audit
         run_frontend
         run_build
         ;;
     *)
-        echo "usage: $0 [all|corpus|lint|gotest|frontend|app]" >&2
+        echo "usage: $0 [all|corpus|lint|gotest|audit|frontend|app]" >&2
         exit 2
         ;;
 esac

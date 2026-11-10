@@ -467,14 +467,26 @@ func placeConsistent(place string, c model.EraYear) bool {
 // The key is the 词牌 plus a distinctive phrase from the verse; the 四库
 // 词题 alone is often too terse to identify the poem.
 func lookupWellKnown(p model.Poem) (wellKnown, bool) {
+	// The longest matching phrase wins, so that a specific key such as
+	// 「卜算子|拣尽寒枝不肯栖」 is preferred over a shorter one that is a
+	// prefix of it.  Go's map iteration order is random, so the comparison
+	// has to be explicit.
+	bestKey := ""
+	var best wellKnown
 	for key, wk := range wellKnownPoems {
 		tune, phrase, _ := strings.Cut(key, "|")
 		if tune != p.Tune {
 			continue
 		}
-		if phrase == "" || strings.Contains(p.Text, phrase) {
-			return wk, true
+		if phrase != "" && !strings.Contains(p.Text, phrase) {
+			continue
+		}
+		if len(phrase) > len(bestKey) {
+			bestKey, best = phrase, wk
 		}
 	}
-	return wellKnown{}, false
+	if bestKey == "" {
+		return wellKnown{}, false
+	}
+	return best, true
 }

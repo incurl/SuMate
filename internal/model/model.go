@@ -167,8 +167,12 @@ type Annotation struct {
 	ScenarioBoundary string `json:"scenario_boundary"`
 	// Healing is the Dongpo-style healing attribute.
 	Healing string `json:"healing"`
-	// Concepts are the semantic concept keys used for matching.
+	// Concepts are the semantic concept keys used for matching, ranked by
+	// relevance.
 	Concepts []string `json:"concepts"`
+	// Primary are the concepts that a specific phrase matched; they carry
+	// the prose reading of the verse.
+	Primary []string `json:"primary"`
 	// Keywords are surface keywords, used for display and explanation.
 	Keywords []string `json:"keywords"`
 	// Tags maps a root dimension to the leaf tag ids of that dimension.

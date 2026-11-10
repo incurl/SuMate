@@ -49,11 +49,49 @@ func (e *Engine) keywordIndex() map[string][]string {
 	return idx
 }
 
+// The relative weight of a single-character keyword against a specific
+// multi-character phrase.
+//
+// A specific phrase such as 「拣尽寒枝」 scores 16 (4 characters, squared);
+// a single character such as 「风」 scores 1.  This is the equivalent of
+// oblique's long-word-first rule: the specific always wins, but the
+// ordinary word still contributes evidence.
+const (
+	weakWeight = 1
+	weakScore  = 1
+)
+
 // MatchedConcepts returns the concepts a verse text triggers, ordered by
-// relevance (number of distinct keywords hit, then keyword length).
+// relevance.
+//
+// The scoring distinguishes two kinds of keyword:
+//
+//   - a **specific** keyword (two characters or more, e.g. 「婵娟」,
+//     「拣尽寒枝」) is strong evidence on its own;
+//   - a **common** keyword (a single character such as 「风」「月」「无」)
+//     is only weak evidence, because it occurs in a large fraction of the
+//     corpus and would otherwise attach a concept to almost every verse.
+//
+// A concept backed only by single characters is still recorded -- dropping
+// it would lose verses that really are about the topic -- but it is ranked
+// below every concept that a specific phrase matched, and it is kept out
+// of the *primary* concept list.
+//
+// This is the equivalent of oblique's Y1 rule: a word that is also an
+// ordinary word must not be trusted on its own, but it is still evidence.
 func (e *Engine) MatchedConcepts(text string) []string {
+	ranked, _ := e.matchConcepts(text)
+	return ranked
+}
+
+// matchConcepts returns the ranked concepts and the subset that was backed
+// by a specific (multi-character) keyword.
+func (e *Engine) matchConcepts(text string) (ranked []string, specific []string) {
 	idx := e.keywordIndex()
 	score := map[string]int{}
+	// strong records, per concept, whether a multi-character keyword hit.
+	strong := map[string]bool{}
+
 	for kw, keys := range idx {
 		if kw == "" {
 			continue
@@ -62,25 +100,48 @@ func (e *Engine) MatchedConcepts(text string) []string {
 		if n == 0 {
 			continue
 		}
-		// Longer keywords are more specific and count for more.
 		w := len([]rune(kw))
 		for _, k := range keys {
-			score[k] += n * w * w
+			if w >= 2 {
+				// Longer keywords are more specific and count for more.
+				score[k] += n * w * w
+				strong[k] = true
+			} else {
+				// A single character is a weak hint: it is accumulated
+				// separately so that it can never outweigh a specific
+				// phrase.
+				score[k] += n * weakWeight
+			}
 		}
 	}
-	out := make([]string, 0, len(score))
+
+	ranked = make([]string, 0, len(score))
 	for k, s := range score {
-		if s > 0 {
-			out = append(out, k)
+		if s <= 0 {
+			continue
+		}
+		if !strong[k] {
+			score[k] = weakScore
+		}
+		ranked = append(ranked, k)
+	}
+	sort.Slice(ranked, func(i, j int) bool {
+		// Concepts with specific evidence always come first.
+		if strong[ranked[i]] != strong[ranked[j]] {
+			return strong[ranked[i]]
+		}
+		if score[ranked[i]] != score[ranked[j]] {
+			return score[ranked[i]] > score[ranked[j]]
+		}
+		return ranked[i] < ranked[j]
+	})
+
+	for _, k := range ranked {
+		if strong[k] {
+			specific = append(specific, k)
 		}
 	}
-	sort.Slice(out, func(i, j int) bool {
-		if score[out[i]] != score[out[j]] {
-			return score[out[i]] > score[out[j]]
-		}
-		return out[i] < out[j]
-	})
-	return out
+	return ranked, specific
 }
 
 // Annotate produces the full annotation of one verse.
@@ -96,8 +157,16 @@ func (e *Engine) Annotate(v *model.Verse, poem model.Poem) model.Annotation {
 	}
 
 	// --- derive from concepts.
-	if len(a.Concepts) == 0 {
-		a.Concepts = e.MatchedConcepts(v.Text)
+	//
+	// The primary concept list (backed by a specific phrase) drives the
+	// prose; the full list contributes the tags, so that a verse whose only
+	// evidence is a common word still shows up under the right dimension.
+	ranked, specific := e.matchConcepts(v.Text)
+	a.Concepts = ranked
+	if len(specific) > 0 {
+		a.Primary = specific
+	} else {
+		a.Primary = ranked
 	}
 
 	var (
@@ -176,7 +245,7 @@ func (e *Engine) Annotate(v *model.Verse, poem model.Poem) model.Annotation {
 	}
 
 	// --- prose fields: assemble from the dominant concepts.
-	dominant := dominantConcepts(a.Concepts, 3)
+	dominant := dominantConcepts(a.Primary, 3)
 	if len(dominant) > 0 {
 		c0 := e.concepts[dominant[0]]
 		a.Literal = c0.Surface

@@ -383,7 +383,7 @@ var conceptList = []Concept{
 		Polarity:   "melanchol",
 		Emotions:   []string{"melanchol.gentle_nostalgia", "melanchol.distant_longing", "dongpo.sorrow_with_transcendence"},
 		Tangents:   []string{"sorrow_with_transcendence", "peaceful_acceptance_of_fate"},
-		Tags:       []string{"mood.low.nostalgia", "occasion.journey.return", "place"},
+		Tags:       []string{"mood.low.nostalgia", "occasion.journey.return", "place.nature"},
 		Keywords:   []string{"故园", "故人", "旧游", "旧梦", "当年", "往事", "旧欢", "故国", "归思", "家", "乡", "回首", "重来"},
 	},
 	{

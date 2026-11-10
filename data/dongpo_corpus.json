@@ -24,7 +24,10 @@
     "此生此夜不长好明月明年何处看。"
    ],
    "align": 0.8929,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "阳关曲",
@@ -40,7 +43,10 @@
     "恨君不取契丹首金甲牙旗归故乡。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "阳关曲",
@@ -56,7 +62,10 @@
     "使君莫忘霅溪女还作阳关肠断声。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "如梦令",
@@ -75,7 +84,10 @@
     "居士本来无垢。"
    ],
    "align": 0.9697,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "如梦令",
@@ -94,7 +106,10 @@
     "俯为人间一切。"
    ],
    "align": 0.9697,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "如梦令",
@@ -113,7 +128,10 @@
     "江上一犁春雨。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "如梦令",
@@ -132,7 +150,10 @@
     "莫望小桥流水。"
    ],
    "align": 0.9697,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "如梦令",
@@ -151,7 +172,10 @@
     "后夜松江月满。"
    ],
    "align": 0.8615,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "生查子",
@@ -168,7 +192,10 @@
     "后月逐君还梦绕湖边路。"
    ],
    "align": 0.95,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "昭君怨",
@@ -189,7 +216,10 @@
     "水东流。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "点绛唇",
@@ -209,7 +239,10 @@
     "愁入参差雁。"
    ],
    "align": 0.9024,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "点绛唇",
@@ -229,7 +262,10 @@
     "空有年年雁。"
    ],
    "align": 0.9756,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "点绛唇",
@@ -249,7 +285,10 @@
     "一送西飞雁。"
    ],
    "align": 0.9512,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "点绛唇",
@@ -269,7 +308,10 @@
     "风月平分破。"
    ],
    "align": 0.9512,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "点绛唇",
@@ -289,7 +331,10 @@
     "芳草迷归路。"
    ],
    "align": 0.8889,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -307,7 +352,10 @@
     "香生雾縠见纤柔。"
    ],
    "align": 0.9639,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -325,7 +373,10 @@
     "休将白发唱黄鸡。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -343,7 +394,10 @@
     "斜风细雨不须归。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -361,7 +415,10 @@
     "归来冰颗乱黏须。"
    ],
    "align": 0.881,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -379,7 +436,10 @@
     "清香细细嚼梅须。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -397,7 +457,10 @@
     "醉中还许揽桓须。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -415,7 +478,10 @@
     "冻吟谁伴拈髭须。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -433,7 +499,10 @@
     "尊前呵手镊霜须。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -451,7 +520,10 @@
     "不知明日为谁黄。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -469,7 +541,10 @@
     "金钗玉碗泻鹅黄。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -487,7 +562,10 @@
     "梦魂东去觅桑榆。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -505,7 +583,10 @@
     "吴姬三日手犹香。"
    ],
    "align": 0.9639,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -523,7 +604,10 @@
     "有人归去欲卿卿。"
    ],
    "align": 0.8916,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -541,7 +625,10 @@
     "翰林子墨主人卿。"
    ],
    "align": 0.9398,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -559,7 +646,10 @@
     "归家说与采桑姑。"
    ],
    "align": 0.881,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -577,7 +667,10 @@
     "道逢醉叟卧黄醺。"
    ],
    "align": 0.9639,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -595,7 +688,10 @@
     "问言豆叶几时黄。"
    ],
    "align": 0.8916,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -613,7 +709,10 @@
     "敲门试问野人家。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -631,7 +730,10 @@
     "使君元是此中人。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -649,7 +751,10 @@
     "困人天气近清明。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -667,7 +772,10 @@
     "不知来岁与谁看。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -685,7 +793,10 @@
     "几时归去不销魂。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -703,7 +814,10 @@
     "且来花里听笙歌。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -721,7 +835,10 @@
     "夜阑相对梦魂间。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -739,7 +856,10 @@
     "归来衫袖有天香。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -757,7 +877,10 @@
     "仲卿终不避桐乡。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -775,7 +898,10 @@
     "醉归江路野梅新。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -793,7 +919,10 @@
     "茱萸仔细更重看。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -811,7 +940,10 @@
     "人间有味是清欢。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -829,7 +961,10 @@
     "时平不用鲁连书。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -847,7 +982,10 @@
     "甚时名作锦薰笼。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -865,7 +1003,10 @@
     "尊前还有个中人。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -883,7 +1024,10 @@
     "曲终红袖落双缠。"
    ],
    "align": 0.9048,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -901,7 +1045,10 @@
     "翠鬟聊著小诗缠。"
    ],
    "align": 0.9024,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -919,7 +1066,10 @@
     "佳人相见一千年。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -937,7 +1087,10 @@
     "恨无人藉买山钱。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -955,7 +1108,10 @@
     "愿为辞社宴春秋。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -973,7 +1129,10 @@
     "岁寒松柏肯惊秋。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -991,7 +1150,10 @@
     "挽回霜鬓莫教休。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -1009,25 +1171,31 @@
     "一声敲彻绛河秋。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
    "subtitle": "端午",
-   "body": "【阙】袂轻风不破尘玉簪犀璧醉佳辰一番红粉【阙】谁新团扇只堪题往事新丝那解系行人酒阑滋味似残春",
+   "body": "袂轻风不破尘玉簪犀璧醉佳辰一番红粉谁新团扇只堪题往事新丝那解系行人酒阑滋味似残春",
    "stanzas": [
-    "【阙】袂轻风不破尘玉簪犀璧醉佳辰一番红粉【阙】谁新团扇只堪题往事新丝那解系行人酒阑滋味似残春"
+    "袂轻风不破尘玉簪犀璧醉佳辰一番红粉谁新团扇只堪题往事新丝那解系行人酒阑滋味似残春"
    ],
-   "text": "【入】袂轻风不破尘。玉簪犀璧醉佳辰。一番红粉【为】谁新。团扇只堪题往事新丝那解系行人。酒阑滋味思残春。",
+   "text": "袂轻风不破尘。玉簪犀璧醉佳辰。一番红粉谁新。团扇只堪题往事新丝那解系行人。酒阑滋味思残春。",
    "sentences": [
-    "【入】袂轻风不破尘。",
+    "袂轻风不破尘。",
     "玉簪犀璧醉佳辰。",
-    "一番红粉【为】谁新。",
+    "一番红粉谁新。",
     "团扇只堪题往事新丝那解系行人。",
     "酒阑滋味思残春。"
    ],
-   "align": 0.9286,
-   "has_text": true
+   "align": 0.9512,
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -1045,25 +1213,31 @@
     "含滋嚼句齿牙香。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
    "subtitle": "",
-   "body": "山色横侵蘸晕霞湘川风静吐寒花远林屋散【阙】啼鸦梦到故园多少路酒醒南望隔天涯月明千里照平沙",
+   "body": "山色横侵蘸晕霞湘川风静吐寒花远林屋散啼鸦梦到故园多少路酒醒南望隔天涯月明千里照平沙",
    "stanzas": [
-    "山色横侵蘸晕霞湘川风静吐寒花远林屋散【阙】啼鸦梦到故园多少路酒醒南望隔天涯月明千里照平沙"
+    "山色横侵蘸晕霞湘川风静吐寒花远林屋散啼鸦梦到故园多少路酒醒南望隔天涯月明千里照平沙"
    ],
-   "text": "山色横侵蘸晕霞。湘川风静吐寒花。远林屋散【尚】啼鸦。梦到故园多少路酒醒南望隔天涯。月明千里照平沙。",
+   "text": "山色横侵蘸晕霞。湘川风静吐寒花。远林屋散啼鸦。梦到故园多少路酒醒南望隔天涯。月明千里照平沙。",
    "sentences": [
     "山色横侵蘸晕霞。",
     "湘川风静吐寒花。",
-    "远林屋散【尚】啼鸦。",
+    "远林屋散啼鸦。",
     "梦到故园多少路酒醒南望隔天涯。",
     "月明千里照平沙。"
    ],
-   "align": 0.9762,
-   "has_text": true
+   "align": 0.988,
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浣溪沙",
@@ -1075,7 +1249,10 @@
    "text": "",
    "sentences": [],
    "align": 0.1319,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1096,7 +1273,10 @@
     "良夜清风月满湖。"
    ],
    "align": 0.9773,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1117,7 +1297,10 @@
     "便逐鸱夷去得无。"
    ],
    "align": 0.9318,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1138,7 +1321,10 @@
     "恰是当年十八娘。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1159,7 +1345,10 @@
     "待有良田是几时。"
    ],
    "align": 0.9885,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1180,7 +1369,10 @@
     "匹似当初本不来。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1201,7 +1393,10 @@
     "愧青松守岁寒。"
    ],
    "align": 0.9885,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1222,7 +1417,10 @@
     "此事如何到得侬。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1243,7 +1441,10 @@
     "读遍千回与万回。"
    ],
    "align": 0.8182,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1264,7 +1465,10 @@
     "不见如今劝酒人。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1285,7 +1489,10 @@
     "时下凌宵百尺英。"
    ],
    "align": 0.9302,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1306,7 +1513,10 @@
     "且更从容等待他。"
    ],
    "align": 0.9425,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1327,7 +1537,10 @@
     "卷起杨花似雪花。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1348,7 +1561,10 @@
     "且折江梅上小楼。"
    ],
    "align": 0.9773,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1369,7 +1585,10 @@
     "不是花红是玉红。"
    ],
    "align": 0.9773,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1390,7 +1609,10 @@
     "只与离人照断肠。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1411,7 +1633,10 @@
     "六双骰儿六点儿。"
    ],
    "align": 0.9318,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1432,7 +1657,10 @@
     "一夜余音在耳边。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1453,7 +1681,10 @@
     "摆撼鱼龙我自闲。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1474,7 +1705,10 @@
     "春着花枝百态生。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1495,7 +1729,10 @@
     "颠倒红英间绿苔。"
    ],
    "align": 0.9655,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1516,7 +1753,10 @@
     "迁客今朝始是归。"
    ],
    "align": 0.907,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1537,7 +1777,10 @@
     "花倚朱阑裹住风。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1558,7 +1801,10 @@
     "醺眼犹能仔细看。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "减字木兰花",
@@ -1579,7 +1825,10 @@
     "满劝金卮玉手擎。"
    ],
    "align": 0.9318,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "诉衷情",
@@ -1598,7 +1847,10 @@
     "若为情绪更问新官向旧官啼。"
    ],
    "align": 0.9195,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "诉衷情",
@@ -1617,7 +1869,10 @@
     "如花似叶岁岁年年共占春风。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "诉衷情",
@@ -1636,7 +1891,10 @@
     "素蛾今夜故故随人似斗婵娟。"
    ],
    "align": 0.9773,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "菩萨鬘",
@@ -1657,7 +1915,10 @@
     "累累一串珠。"
    ],
    "align": 0.8182,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "菩萨鬘",
@@ -1669,7 +1930,10 @@
    "text": "",
    "sentences": [],
    "align": 0.6818,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "菩萨鬘",
@@ -1690,7 +1954,10 @@
     "路人啼更多。"
    ],
    "align": 0.9318,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "菩萨鬘",
@@ -1711,7 +1978,10 @@
     "扁舟下五湖。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "菩萨鬘",
@@ -1721,7 +1991,10 @@
    "text": "",
    "sentences": [],
    "align": 0.0,
-   "has_text": false
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "天怜豪俊",
@@ -1733,7 +2006,10 @@
    "text": "",
    "sentences": [],
    "align": 0.7143,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 3,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "天怜豪俊",
@@ -1754,7 +2030,10 @@
     "应思陈孟公。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "天怜豪俊",
@@ -1775,7 +2054,10 @@
     "长安远似天。"
    ],
    "align": 0.8966,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "天怜豪俊",
@@ -1796,7 +2078,10 @@
     "愿人无别离。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "天怜豪俊",
@@ -1806,7 +2091,10 @@
    "text": "",
    "sentences": [],
    "align": 0.0,
-   "has_text": false
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1827,7 +2115,10 @@
     "人间夜似年。"
    ],
    "align": 0.8675,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1848,7 +2139,10 @@
     "从来见拟伦。"
    ],
    "align": 0.9773,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1869,7 +2163,10 @@
     "要须风雨时。"
    ],
    "align": 0.9773,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1890,7 +2187,10 @@
     "羞人问便邮。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1911,7 +2211,10 @@
     "残妆晚照闲。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1932,7 +2235,10 @@
     "枝残惜别离。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1953,7 +2259,10 @@
     "人谁念浅颦。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1974,7 +2283,10 @@
     "长丝藕笑郎。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -1995,7 +2307,10 @@
     "秋宜不上楼。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -2016,7 +2331,10 @@
     "迟开恨不归。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -2037,7 +2355,10 @@
     "微波先注人。"
    ],
    "align": 0.9545,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -2058,7 +2379,10 @@
     "须从掌上看。"
    ],
    "align": 0.9091,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "风回仙",
@@ -2079,7 +2403,10 @@
     "此时憎月明。"
    ],
    "align": 0.9318,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "采桑子",
@@ -2098,7 +2425,10 @@
     "斜照江天一抹红。"
    ],
    "align": 0.9318,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "卜算子",
@@ -2115,25 +2445,30 @@
     "莫惜尊前仔细看应是容颜老。"
    ],
    "align": 0.9773,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "卜算子",
    "subtitle": "惠州有温都监女颇有色年十六不肯嫁人闻坡至甚喜毎夜闻坡讽咏则徘徊窗下坡觉而推窗则其女逾墙而去坡从而物色之曰吾当呼王郎与之子为姻未几而坡过海女遂卒于沙滩侧坡回惠为赋此词",
-   "body": "缺月挂疏桐漏防人初静时见幽人独往来缥缈孤鸿影惊起却回头有恨无人省拣尽寒枝不肯栖寂寞沙洲冷【一刻枫落吴江冷】",
+   "body": "缺月挂疏桐漏防人初静时见幽人独往来缥缈孤鸿影惊起却回头有恨无人省拣尽寒枝不肯栖寂寞沙洲冷",
    "stanzas": [
-    "缺月挂疏桐漏防人初静时见幽人独往来缥缈孤鸿影惊起却回头有恨无人省拣尽寒枝不肯栖寂寞沙洲冷【一刻枫落吴江冷】"
+    "缺月挂疏桐漏防人初静时见幽人独往来缥缈孤鸿影惊起却回头有恨无人省拣尽寒枝不肯栖寂寞沙洲冷"
    ],
-   "text": "缺月挂疏桐漏防人初静。时见幽人独往来缥缈孤鸿影。惊起却回头有恨无人省。拣尽寒枝不肯栖寂寞沙洲冷【一刻枫落吴江冷。】",
+   "text": "缺月挂疏桐漏防人初静。时见幽人独往来缥缈孤鸿影。惊起却回头有恨无人省。拣尽寒枝不肯栖寂寞沙洲冷。",
    "sentences": [
     "缺月挂疏桐漏防人初静。",
     "时见幽人独往来缥缈孤鸿影。",
     "惊起却回头有恨无人省。",
-    "拣尽寒枝不肯栖寂寞沙洲冷【一刻枫落吴江冷。",
-    "】"
+    "拣尽寒枝不肯栖寂寞沙洲冷。"
    ],
-   "align": 0.8632,
-   "has_text": true
+   "align": 0.8409,
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "好事近",
@@ -2150,7 +2485,10 @@
     "从此满城歌吹看黄州阗咽。"
    ],
    "align": 0.9778,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "好事近",
@@ -2168,7 +2506,10 @@
     "吷"
    ],
    "align": 0.9438,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "好事近",
@@ -2185,7 +2526,10 @@
     "独棹小舟归去任烟波飘兀。"
    ],
    "align": 0.9438,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "华清引",
@@ -2204,7 +2548,10 @@
     "至今清夜月依前过缭墙。"
    ],
    "align": 0.9213,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "谒金门",
@@ -2225,7 +2572,10 @@
     "已明声未已。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "谒金门",
@@ -2246,7 +2596,10 @@
     "好教闲处着。"
    ],
    "align": 0.8889,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "谒金门",
@@ -2267,7 +2620,10 @@
     "夜阑还独语。"
    ],
    "align": 0.9556,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "清平乐",
@@ -2279,7 +2635,10 @@
    "text": "",
    "sentences": [],
    "align": 0.6099,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "更漏子",
@@ -2297,7 +2656,10 @@
     "只忧长笛吹花落除是宁王。"
    ],
    "align": 0.7725,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "乌夜啼",
@@ -2314,7 +2676,10 @@
     "更有鲈鱼堪切脍儿辈莫教知。"
    ],
    "align": 0.9583,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "阮郎归",
@@ -2335,7 +2700,10 @@
     "琼珠碎却圆。"
    ],
    "align": 0.9362,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "阮郎归",
@@ -2356,7 +2724,10 @@
     "江南日暮云。"
    ],
    "align": 0.9362,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "阮郎归",
@@ -2376,7 +2747,10 @@
     "刘郎双鬓衰。"
    ],
    "align": 0.9462,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人影",
@@ -2397,7 +2771,10 @@
     "芳草迷归路。"
    ],
    "align": 0.9167,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2416,7 +2793,10 @@
     "秾把酒何人心动。"
    ],
    "align": 0.9184,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2435,7 +2815,10 @@
     "秾妙语一时飞动。"
    ],
    "align": 0.9495,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2454,7 +2837,10 @@
     "秾怕见此花撩动。"
    ],
    "align": 0.9293,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2473,7 +2859,10 @@
     "月与佳人共僚。"
    ],
    "align": 0.9,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2494,7 +2883,10 @@
     "俯仰人间今古。"
    ],
    "align": 0.96,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2513,7 +2905,10 @@
     "斗取红窗粉面。"
    ],
    "align": 0.96,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2532,7 +2927,10 @@
     "走马归来便面。"
    ],
    "align": 0.9796,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2551,7 +2949,10 @@
     "把盏凄然北望。"
    ],
    "align": 0.98,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2570,27 +2971,32 @@
     "我已为君德醉。"
    ],
    "align": 0.98,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
    "subtitle": "梅花",
-   "body": "玉骨那愁瘴雾冰肌自有仙风海仙时遣探芳栊倒挂绿毛么凤素面翻嫌粉涴洗妆不褪唇红高情已逐晓云空不与梨花同梦【惠州梅花上珍禽曰倒挂子似绿毛凤而小】",
+   "body": "玉骨那愁瘴雾冰肌自有仙风海仙时遣探芳栊倒挂绿毛么凤素面翻嫌粉涴洗妆不褪唇红高情已逐晓云空不与梨花同梦",
    "stanzas": [
-    "玉骨那愁瘴雾冰肌自有仙风海仙时遣探芳栊倒挂绿毛么凤素面翻嫌粉涴洗妆不褪唇红高情已逐晓云空不与梨花同梦【惠州梅花上珍禽曰倒挂子似绿毛凤而小】"
+    "玉骨那愁瘴雾冰肌自有仙风海仙时遣探芳栊倒挂绿毛么凤素面翻嫌粉涴洗妆不褪唇红高情已逐晓云空不与梨花同梦"
    ],
-   "text": "玉骨那愁瘴雾冰肌自有仙风。海仙时遣探芳栊。倒挂绿毛么凤。素面翻嫌粉涴洗妆不褪唇红。高情已逐晓云空。不与梨花同梦。【惠州梅花上珍禽曰倒挂子似绿毛凤而小】",
+   "text": "玉骨那愁瘴雾冰姿自有仙风。海仙时遣探芳丛。倒挂绿毛么凤。素面翻嫌粉涴洗妆不褪唇红。高情已逐晓云空。不与梨花同梦。",
    "sentences": [
-    "玉骨那愁瘴雾冰肌自有仙风。",
-    "海仙时遣探芳栊。",
+    "玉骨那愁瘴雾冰姿自有仙风。",
+    "海仙时遣探芳丛。",
     "倒挂绿毛么凤。",
     "素面翻嫌粉涴洗妆不褪唇红。",
     "高情已逐晓云空。",
-    "不与梨花同梦。",
-    "【惠州梅花上珍禽曰倒挂子似绿毛凤而小】"
+    "不与梨花同梦。"
    ],
-   "align": 0.7931,
-   "has_text": true
+   "align": 0.9293,
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2609,7 +3015,10 @@
     "杜宇一声春晓。"
    ],
    "align": 0.9495,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2628,7 +3037,10 @@
     "未转头时皆梦。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "西江月",
@@ -2647,7 +3059,10 @@
     "与把新诗判断。"
    ],
    "align": 0.96,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "少年游",
@@ -2665,7 +3080,10 @@
     "狱草烟深讼庭人悄无吝宴游过。"
    ],
    "align": 0.902,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "少年游",
@@ -2683,7 +3101,10 @@
     "一点香檀谁能藉箸无复似张良。"
    ],
    "align": 0.9608,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "少年游",
@@ -2700,7 +3121,10 @@
     "恰似嫦娥怜双燕分明照画梁斜。"
    ],
    "align": 0.9703,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "瑶池燕",
@@ -2725,7 +3149,10 @@
     "娇和恨。"
    ],
    "align": 0.9505,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2744,7 +3171,10 @@
     "声绕碧山飞去晚云留。"
    ],
    "align": 0.9515,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2763,7 +3193,10 @@
     "更有月明千顷一时留。"
    ],
    "align": 0.9515,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2782,7 +3215,10 @@
     "只有多情流水伴人行。"
    ],
    "align": 0.9615,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2801,7 +3237,10 @@
     "我是世间闲客此闲行。"
    ],
    "align": 0.9808,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2820,7 +3259,10 @@
     "自爱湖边沙路免泥行。"
    ],
    "align": 0.9808,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2839,7 +3281,10 @@
     "此乐无声无味最难名。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2858,7 +3303,10 @@
     "写取余声归向水仙夸。"
    ],
    "align": 0.9515,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2877,7 +3325,10 @@
     "好伴骑鲸公子赋雄夸。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2896,7 +3347,10 @@
     "不见老婆三五少年时。"
    ],
    "align": 0.9615,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2915,7 +3369,10 @@
     "惟有落花芳草断人肠。"
    ],
    "align": 0.9808,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2934,7 +3391,10 @@
     "回首水云何处觅孤城。"
    ],
    "align": 0.9231,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2953,7 +3413,10 @@
     "留取红巾千点照池台。"
    ],
    "align": 0.9231,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2972,7 +3435,10 @@
     "莫忘故人憔悴老江边。"
    ],
    "align": 0.8654,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -2991,7 +3457,10 @@
     "何物与侬归去有残妆。"
    ],
    "align": 0.9515,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -3010,7 +3479,10 @@
     "留取曲终一拍待君来。"
    ],
    "align": 0.9126,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -3029,7 +3501,10 @@
     "胜似缠头千锦共藏珍。"
    ],
    "align": 0.932,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -3048,7 +3523,10 @@
     "但得周郎一顾胜珠珍。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -3067,7 +3545,10 @@
     "怕被杨花句引嫁东风。"
    ],
    "align": 0.9423,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -3079,7 +3560,10 @@
    "text": "",
    "sentences": [],
    "align": 0.6503,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南柯子",
@@ -3098,7 +3582,10 @@
     "春色属芜菁。"
    ],
    "align": 0.972,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "浪淘沙",
@@ -3119,7 +3606,10 @@
     "料想春光先到处吹绽梅英。"
    ],
    "align": 0.9444,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "鹧鸪天",
@@ -3138,7 +3628,10 @@
     "殷勤昨夜三更又得浮生一日凉。"
    ],
    "align": 0.9174,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "鹧鸪天",
@@ -3157,7 +3650,10 @@
     "明朝酒醒知何处肠断云间紫玉箫。"
    ],
    "align": 0.9174,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "玉楼春",
@@ -3176,7 +3672,10 @@
     "与余同是识翁人惟有西湖波底月。"
    ],
    "align": 0.9464,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "玉楼春",
@@ -3195,7 +3694,10 @@
     "明朝归路下塘西不见莺啼花落处。"
    ],
    "align": 0.991,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "玉楼春",
@@ -3214,7 +3716,10 @@
     "尊前必有问君人为道别来心与绪。"
    ],
    "align": 0.9464,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "玉楼春",
@@ -3233,7 +3738,10 @@
     "坐中有客醉多情不惜玉山醉倒。"
    ],
    "align": 0.973,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "玉楼春",
@@ -3252,7 +3760,10 @@
     "日高慵卷水晶帘犹带春醪红玉困。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "玉楼春",
@@ -3271,7 +3782,10 @@
     "云深不见玉关遥草细山重残照里。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3292,7 +3806,10 @@
     "落照江天一半开。"
    ],
    "align": 0.9821,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3313,7 +3830,10 @@
     "一点微酸已著枝。"
    ],
    "align": 0.9107,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3334,7 +3854,10 @@
     "尽是刘郎去后栽。"
    ],
    "align": 0.9643,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3355,7 +3878,10 @@
     "明日黄花蝶也愁。"
    ],
    "align": 0.9821,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3376,7 +3902,10 @@
     "秋雨晴时泪不晴。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3397,7 +3926,10 @@
     "爱被西真唤作儿。"
    ],
    "align": 0.9464,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3418,7 +3950,10 @@
     "堕泪羊公却姓杨。"
    ],
    "align": 0.9821,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3439,7 +3974,10 @@
     "占得人间一味愚。"
    ],
    "align": 0.8571,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3460,7 +3998,10 @@
     "长在环儿白雪胸。"
    ],
    "align": 0.9464,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3481,7 +4022,10 @@
     "一斛明珠换绿珠。"
    ],
    "align": 0.9821,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3502,7 +4046,10 @@
     "怎得成双似旧时。"
    ],
    "align": 0.9643,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3523,7 +4070,10 @@
     "豁得平生俊气无。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3544,7 +4094,10 @@
     "一寸相思一寸灰。"
    ],
    "align": 0.9464,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3565,7 +4118,10 @@
     "绣被焚香独自眠。"
    ],
    "align": 0.9107,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3586,7 +4142,10 @@
     "唱遍山东一百州。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "南乡子",
@@ -3607,7 +4166,10 @@
     "种柳应须柳柳州。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "鹊桥仙",
@@ -3624,7 +4186,10 @@
     "相逢一醉是前缘风散飘然何处。"
    ],
    "align": 0.9455,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "鹊桥仙",
@@ -3641,7 +4206,10 @@
     "人生何处不儿嬉看乞巧朱楼彩舫。"
    ],
    "align": 0.9821,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "瑞鹧鸪",
@@ -3659,7 +4227,10 @@
     "欹侬欲送潮歌底曲尊前还唱使君诗。"
    ],
    "align": 0.973,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "瑞鹧鸪",
@@ -3671,7 +4242,10 @@
    "text": "",
    "sentences": [],
    "align": 0.6199,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人",
@@ -3692,7 +4266,10 @@
     "应有开元遗老泪纵横。"
    ],
    "align": 0.9369,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人",
@@ -3713,7 +4290,10 @@
     "看取灵光新赋有家风。"
    ],
    "align": 0.9189,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人",
@@ -3734,7 +4314,10 @@
     "惟有一江明月碧琉璃。"
    ],
    "align": 0.9464,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人",
@@ -3755,7 +4338,10 @@
     "酝造一场烦恼送人来。"
    ],
    "align": 0.9464,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人",
@@ -3767,7 +4353,10 @@
    "text": "",
    "sentences": [],
    "align": 0.1565,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人",
@@ -3788,7 +4377,10 @@
     "只恐别郎容易见郎难。"
    ],
    "align": 0.9189,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人",
@@ -3809,7 +4401,10 @@
     "独自行来行去好思量。"
    ],
    "align": 0.955,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "虞美人",
@@ -3821,7 +4416,10 @@
    "text": "",
    "sentences": [],
    "align": 0.6395,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "醉落魄",
@@ -3842,7 +4440,10 @@
     "西望峨嵋长羡归飞鹤。"
    ],
    "align": 0.9825,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "醉落魄",
@@ -3863,7 +4464,10 @@
     "裛弹在罗衣图得见时说。"
    ],
    "align": 0.9381,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "醉落魄",
@@ -3884,7 +4488,10 @@
     "家在西南长作东南别。"
    ],
    "align": 0.9649,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -3903,7 +4510,10 @@
     "龙丘新洞府铅鼎养丹砂。"
    ],
    "align": 0.9667,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -3922,7 +4532,10 @@
     "回车来过我乔木拥千章。"
    ],
    "align": 0.9244,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -3941,7 +4554,10 @@
     "君王如有问结袜赖王生。"
    ],
    "align": 0.95,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -3960,7 +4576,10 @@
     "骎骎问囚长损气见鹤忽惊心。"
    ],
    "align": 0.9492,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -3979,7 +4598,10 @@
     "此身如传舍何处是吾乡。"
    ],
    "align": 0.9667,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -3998,7 +4620,10 @@
     "夜阑相对处依旧梦魂中。"
    ],
    "align": 0.9333,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -4017,7 +4642,10 @@
     "东皇不拘束肯为使君留。"
    ],
    "align": 0.9833,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -4036,7 +4664,10 @@
     "层巅余落日草露已沾衣。"
    ],
    "align": 0.9667,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -4055,7 +4686,10 @@
     "人生如逆旅我亦是行人。"
    ],
    "align": 0.9833,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -4074,7 +4708,10 @@
     "徘徊花上月空度可怜宵。"
    ],
    "align": 0.95,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -4093,7 +4730,10 @@
     "小舟从此逝江海寄余生。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -4112,7 +4752,10 @@
     "欲知肠断处梁上暗尘飞。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -4130,7 +4773,10 @@
     "不应同蜀客惟爱卓文君。"
    ],
    "align": 0.9667,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "临江仙",
@@ -4149,11 +4795,14 @@
     "想伊归去后应似我情怀。"
    ],
    "align": 0.95,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
-   "subtitle": "集句",
+   "subtitle": "春景",
    "body": "花褪残红青杏了燕子飞时绿水人家绕枝上柳绵吹又少天涯何处无芳草墙里秋千墙外道墙外行人墙里佳人笑笑渐不闻声渐悄多情却被无情恼",
    "stanzas": [
     "花褪残红青杏了燕子飞时绿水人家绕枝上柳绵吹又少天涯何处无芳草墙里秋千墙外道墙外行人墙里佳人笑笑渐不闻声渐悄多情却被无情恼"
@@ -4170,7 +4819,10 @@
     "多情却被无情恼。"
    ],
    "align": 0.9833,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4191,7 +4843,10 @@
     "章台折尽青青柳。"
    ],
    "align": 0.9667,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4212,7 +4867,10 @@
     "东风吹破千行泪。"
    ],
    "align": 0.958,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4233,7 +4891,10 @@
     "我思君处君思我。"
    ],
    "align": 0.8739,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4254,7 +4915,10 @@
     "醺醺雪意云垂野。"
    ],
    "align": 0.9667,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4275,7 +4939,10 @@
     "清诗未就冰生砚。"
    ],
    "align": 0.9833,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4296,7 +4963,10 @@
     "双凫飞去人千里。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4317,7 +4987,10 @@
     "归来分得闲中趣。"
    ],
    "align": 0.95,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4338,7 +5011,10 @@
     "角声吹落梅花月。"
    ],
    "align": 0.9492,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4359,7 +5035,10 @@
     "花枝缺处余名字。"
    ],
    "align": 0.95,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4380,7 +5059,10 @@
     "天公为下曼陀雨。"
    ],
    "align": 0.9667,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4401,7 +5083,10 @@
     "人前深意难轻诉。"
    ],
    "align": 0.9333,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4422,7 +5107,10 @@
     "新书报我添憔悴。"
    ],
    "align": 0.9167,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4434,7 +5122,10 @@
    "text": "",
    "sentences": [],
    "align": 0.1154,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4456,7 +5147,10 @@
     "月笼云暗重门锁。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "蝶恋花",
@@ -4477,7 +5171,10 @@
     "杨花犹有东风管。"
    ],
    "align": 0.9333,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "荷华媚",
@@ -4495,7 +5192,10 @@
     "终须放船儿去清香深处住看伊颜色。"
    ],
    "align": 0.9333,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "渔家傲",
@@ -4518,7 +5218,10 @@
     "翩然欲下还飞去。"
    ],
    "align": 0.9508,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "渔家傲",
@@ -4541,7 +5244,10 @@
     "钱塘江上须忠信。"
    ],
    "align": 0.9516,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "渔家傲",
@@ -4564,7 +5270,10 @@
     "清光长送人归去。"
    ],
    "align": 0.9355,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "渔家傲",
@@ -4587,7 +5296,10 @@
     "风流膝上王文度。"
    ],
    "align": 0.9756,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "渔家傲",
@@ -4610,7 +5322,10 @@
     "千钧重担从头减。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "渔家傲",
@@ -4633,7 +5348,10 @@
     "只堪妆点浮生梦。"
    ],
    "align": 0.9431,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4657,7 +5375,10 @@
     "花开时节与谁来。"
    ],
    "align": 0.9677,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4681,7 +5402,10 @@
     "也无风雨也无晴。"
    ],
    "align": 0.9355,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4705,7 +5429,10 @@
     "牛山何必更沾衣。"
    ],
    "align": 1.0,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4729,7 +5456,10 @@
     "为郎憔悴却羞郎。"
    ],
    "align": 0.9431,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4753,7 +5483,10 @@
     "泛西湖是断肠声。"
    ],
    "align": 0.9677,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4777,7 +5510,10 @@
     "月和疏影上东墙。"
    ],
    "align": 0.9194,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4795,7 +5531,10 @@
     "诗老不知梅格在吟咏更看绿叶与青枝。"
    ],
    "align": 0.9677,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4819,7 +5558,10 @@
     "曹刘今对两苏张。"
    ],
    "align": 0.9677,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "定风波",
@@ -4843,7 +5585,10 @@
     "此心安处是吾乡。"
    ],
    "align": 0.8871,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "十拍子",
@@ -4862,7 +5607,10 @@
     "狂夫老更狂。"
    ],
    "align": 0.9677,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "苏幙遮",
@@ -4874,7 +5622,10 @@
    "text": "",
    "sentences": [],
    "align": 0.6211,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "行香子",
@@ -4896,7 +5647,10 @@
     "放笙歌散庭馆静略从容。"
    ],
    "align": 0.9697,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "行香子",
@@ -4918,7 +5672,10 @@
     "除竺干学得无念得无名。"
    ],
    "align": 0.9848,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "行香子",
@@ -4940,7 +5697,10 @@
     "对一张琴一壶酒一溪云。"
    ],
    "align": 0.9848,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "行香子",
@@ -4961,7 +5721,10 @@
     "任酒花白眼花乱烛花红。"
    ],
    "align": 0.8939,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "行香子",
@@ -4982,7 +5745,10 @@
     "有湖中月江边柳陇头云。"
    ],
    "align": 0.9848,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "行香子",
@@ -5004,7 +5770,10 @@
     "但远山长云山乱晓山清。"
    ],
    "align": 0.9394,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "行香子",
@@ -5025,7 +5794,10 @@
     "望长桥上灯火乱使君还。"
    ],
    "align": 0.9394,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "青玉案",
@@ -5046,7 +5818,10 @@
     "春衫犹是小蛮针线曾湿西湖雨。"
    ],
    "align": 0.9851,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "殢人娇",
@@ -5067,7 +5842,10 @@
     "须信道司空自来见惯。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "殢人娇",
@@ -5088,7 +5866,10 @@
     "寻一首好诗要书裙带。"
    ],
    "align": 0.9051,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "殢人娇",
@@ -5109,7 +5890,10 @@
     "坐望断楼中远山归路。"
    ],
    "align": 0.9481,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5132,7 +5916,10 @@
     "都是斜川当日境吾老矣寄余龄。"
    ],
    "align": 0.9714,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5155,7 +5942,10 @@
     "欲棹小舟寻旧事无处问水连天。"
    ],
    "align": 0.9429,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5177,7 +5967,10 @@
     "欲待曲终寻问取人不见数峰青。"
    ],
    "align": 0.9286,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5200,7 +5993,10 @@
     "会挽雕弓如满月西北望射天狼。"
    ],
    "align": 0.9571,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5223,7 +6019,10 @@
     "寄我相思千点泪流不到楚江东。"
    ],
    "align": 0.9429,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5246,7 +6045,10 @@
     "知道故人相念否携翠袖倚朱阑。"
    ],
    "align": 0.9353,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5269,7 +6071,10 @@
     "雪似故人人似雪虽可爱有人嫌。"
    ],
    "align": 0.9714,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5292,7 +6097,10 @@
     "陌上花开春尽也闻旧曲破朱颜。"
    ],
    "align": 0.9,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5315,7 +6123,10 @@
     "料得年年肠防处明月夜短松冈。"
    ],
    "align": 0.9857,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5327,7 +6138,10 @@
    "text": "",
    "sentences": [],
    "align": 0.1228,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5350,7 +6164,10 @@
     "莫忘使君歌笑处垂柳下矮槐前。"
    ],
    "align": 0.9571,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5373,7 +6190,10 @@
     "拭问江南诸伴侣谁似我醉扬州。"
    ],
    "align": 0.9353,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "江城子",
@@ -5396,7 +6216,10 @@
     "一自绿窗偷见后便憔悴到如今。"
    ],
    "align": 0.8923,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 2,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "千秋岁",
@@ -5419,7 +6242,10 @@
     "须细看晚来月上和银烛。"
    ],
    "align": 0.9155,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "河满子",
@@ -5438,7 +6264,10 @@
     "唱着子渊新曲应须分外含情。"
    ],
    "align": 0.9459,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "祝英台近",
@@ -5450,7 +6279,10 @@
    "text": "",
    "sentences": [],
    "align": 0.6271,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "皂罗特髻",
@@ -5470,7 +6302,10 @@
     "采菱拾翠待到京寻觅。"
    ],
    "align": 0.9753,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "洞仙歌",
@@ -5489,7 +6324,10 @@
     "又莫是东风逐君来便吹散眉间一点春皱。"
    ],
    "align": 0.9762,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "洞仙歌",
@@ -5508,7 +6346,10 @@
     "但屈指西风几时来又不道流年暗中偷换。"
    ],
    "align": 0.9518,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "劝金船",
@@ -5533,7 +6374,10 @@
     "欲问再来何岁应有华发。"
    ],
    "align": 0.9659,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "意难忘",
@@ -5545,7 +6389,10 @@
    "text": "",
    "sentences": [],
    "align": 0.1447,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满江红",
@@ -5567,7 +6414,10 @@
     "便相将左手抱琴书云间宿。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满江红",
@@ -5589,7 +6439,10 @@
     "愿使君还赋谪仙诗追黄鹤。"
    ],
    "align": 0.9519,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满江红",
@@ -5611,7 +6464,10 @@
     "到如今修竹满山阴空陈迹。"
    ],
    "align": 0.9681,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满江红",
@@ -5633,7 +6489,10 @@
     "便与君池上觅残春花如雪。"
    ],
    "align": 0.9032,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满江红",
@@ -5655,7 +6514,10 @@
     "但莫遣新燕却来时音书绝。"
    ],
    "align": 0.9677,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满庭芳",
@@ -5677,7 +6539,10 @@
     "仍传语江南父老时与晒渔蓑。"
    ],
    "align": 0.9474,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满庭芳",
@@ -5699,7 +6564,10 @@
     "青衫破群仙笑我千缕挂烟蓑。"
    ],
    "align": 0.8947,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满庭芳",
@@ -5720,7 +6588,10 @@
     "亲曾见全胜宋玉想像赋高唐。"
    ],
    "align": 0.9418,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满庭芳",
@@ -5742,7 +6613,10 @@
     "江南好千钟美酒一曲满庭芳。"
    ],
    "align": 0.9158,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满庭芳",
@@ -5763,7 +6637,10 @@
     "缸歌舞断行人未起船鼓已逄逄。"
    ],
    "align": 0.9412,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "满庭芳",
@@ -5784,7 +6661,10 @@
     "家何在因君问我归步绕松杉。"
    ],
    "align": 0.871,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水调歌头",
@@ -5805,7 +6685,10 @@
     "一点浩然气千里快哉风。"
    ],
    "align": 0.963,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水调歌头",
@@ -5826,7 +6709,10 @@
     "一任刘德相对卧高楼。"
    ],
    "align": 0.9524,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水调歌头",
@@ -5847,7 +6733,10 @@
     "但愿人长久千里共婵娟。"
    ],
    "align": 0.9789,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水调歌头",
@@ -5868,7 +6757,10 @@
     "推手从归去无泪与君倾。"
    ],
    "align": 0.9312,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水调歌头",
@@ -5880,7 +6772,10 @@
    "text": "",
    "sentences": [],
    "align": 0.1103,
-   "has_text": true
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "雨中花慢",
@@ -5901,7 +6796,10 @@
     "不如留取十分春态付与明年。"
    ],
    "align": 0.9388,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "雨中花慢",
@@ -5922,7 +6820,10 @@
     "一般滋味就中香美除是偷尝。"
    ],
    "align": 0.9588,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "雨中花慢",
@@ -5943,7 +6844,10 @@
     "算应付你枕前珠泪万点千行。"
    ],
    "align": 0.9175,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "八声甘州",
@@ -5964,7 +6868,10 @@
     "西州路不应回首为我沾衣。"
    ],
    "align": 0.9691,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "醉蓬莱",
@@ -5985,7 +6892,10 @@
     "会与州人饮公遗爱一江醇酎。"
    ],
    "align": 0.9588,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "三部乐",
@@ -6009,7 +6919,10 @@
     "且惜取少年花发。"
    ],
    "align": 0.9694,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "念奴娇",
@@ -6030,7 +6943,10 @@
     "人间如梦一尊还酹江月。"
    ],
    "align": 0.97,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "念奴娇",
@@ -6051,7 +6967,10 @@
     "水晶宫里一声吹断横笛。"
    ],
    "align": 0.99,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水龙吟",
@@ -6072,7 +6991,10 @@
     "待垂天赋就骑鲸路稳约相将去。"
    ],
    "align": 0.9706,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水龙吟",
@@ -6093,7 +7015,10 @@
     "为使君洗尽蛮风瘴雨作霜天晓。"
    ],
    "align": 0.9314,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水龙吟",
@@ -6114,7 +7039,10 @@
     "细看来不是杨花点点是离人泪。"
    ],
    "align": 0.9902,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水龙吟",
@@ -6135,7 +7063,10 @@
     "料多情梦里端来见我也参差是。"
    ],
    "align": 0.9608,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水龙吟",
@@ -6156,7 +7087,10 @@
     "抱素琴独向银蟾影里此怀难寄。"
    ],
    "align": 0.8922,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "水龙吟",
@@ -6178,7 +7112,10 @@
     "念征衣未捣佳人拂杵有盈盈泪。"
    ],
    "align": 0.9604,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "归朝欢",
@@ -6203,7 +7140,10 @@
     "竹枝词莫摇新唱谁谓古今隔。"
    ],
    "align": 0.9808,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "永遇乐",
@@ -6224,7 +7164,10 @@
     "此时看回廊晓月也应暗记。"
    ],
    "align": 0.9615,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "永遇乐",
@@ -6245,19 +7188,25 @@
     "异时对黄楼夜景为余浩叹。"
    ],
    "align": 0.9327,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "永遇乐",
    "subtitle": "眺望○时刻不载",
-   "body": "天末山横半空箫鼓楼观高起指点裁成东风满院总是新桃李纶巾羽扇一尊饮罢目送防鸿千里揽清歌余音不防缥缈尚萦流水年来自笑无情何事犹有多情遗思绿鬓朱颜匆匆了却记花前醉明年春到重寻幽梦应在乱莺声里拍防干斜阳转处有谁共倚无愁可解【国士范日新作越调解愁雒阳刘九伯寿闻而悦之戏作俚语之诗天下传咏以谓几于逹者龙丘子犹笑之此虽免乎愁犹有所解也者夫游于自然而托于不得已人乐亦乐人愁亦愁彼且恶乎解哉乃反其词作无愁可解】光景百年看便一世生来不识愁味问愁何处来更开解个甚底万事从来风过耳何用不着心里你唤做展却眉便是逹者也则恐未此理本不通言何曾道欢游胜如名利道则浑是错不道如何即是这里元无我与你甚唤做物情之外若须待醉了方开解时问无酒怎生醉沁园春孤馆灯青野店鸡号旅枕梦残渐月华收练晨霜耿耿云山摛锦朝露漙漙世路无穷劳生有限似此区区长鲜欢微吟罢凭征鞍无语往事千端当时共客长安似二陆初来俱少年有笔头千字胸中万卷致君尧舜此事何难用舍由时行藏在我袖手何妨闲处看身长健但优游卒岁且斗尊前",
+   "body": "天末山横半空箫鼓楼观高起指点裁成东风满院总是新桃李纶巾羽扇一尊饮罢目送防鸿千里揽清歌余音不防缥缈尚萦流水年来自笑无情何事犹有多情遗思绿鬓朱颜匆匆了却记花前醉明年春到重寻幽梦应在乱莺声里拍防干斜阳转处有谁共倚无愁可解光景百年看便一世生来不识愁味问愁何处来更开解个甚底万事从来风过耳何用不着心里你唤做展却眉便是逹者也则恐未此理本不通言何曾道欢游胜如名利道则浑是错不道如何即是这里元无我与你甚唤做物情之外若须待醉了方开解时问无酒怎生醉沁园春孤馆灯青野店鸡号旅枕梦残渐月华收练晨霜耿耿云山摛锦朝露漙漙世路无穷劳生有限似此区区长鲜欢微吟罢凭征鞍无语往事千端当时共客长安似二陆初来俱少年有笔头千字胸中万卷致君尧舜此事何难用舍由时行藏在我袖手何妨闲处看身长健但优游卒岁且斗尊前",
    "stanzas": [
-    "天末山横半空箫鼓楼观高起指点裁成东风满院总是新桃李纶巾羽扇一尊饮罢目送防鸿千里揽清歌余音不防缥缈尚萦流水年来自笑无情何事犹有多情遗思绿鬓朱颜匆匆了却记花前醉明年春到重寻幽梦应在乱莺声里拍防干斜阳转处有谁共倚无愁可解【国士范日新作越调解愁雒阳刘九伯寿闻而悦之戏作俚语之诗天下传咏以谓几于逹者龙丘子犹笑之此虽免乎愁犹有所解也者夫游于自然而托于不得已人乐亦乐人愁亦愁彼且恶乎解哉乃反其词作无愁可解】光景百年看便一世生来不识愁味问愁何处来更开解个甚底万事从来风过耳何用不着心里你唤做展却眉便是逹者也则恐未此理本不通言何曾道欢游胜如名利道则浑是错不道如何即是这里元无我与你甚唤做物情之外若须待醉了方开解时问无酒怎生醉沁园春孤馆灯青野店鸡号旅枕梦残渐月华收练晨霜耿耿云山摛锦朝露漙漙世路无穷劳生有限似此区区长鲜欢微吟罢凭征鞍无语往事千端当时共客长安似二陆初来俱少年有笔头千字胸中万卷致君尧舜此事何难用舍由时行藏在我袖手何妨闲处看身长健但优游卒岁且斗尊前"
+    "天末山横半空箫鼓楼观高起指点裁成东风满院总是新桃李纶巾羽扇一尊饮罢目送防鸿千里揽清歌余音不防缥缈尚萦流水年来自笑无情何事犹有多情遗思绿鬓朱颜匆匆了却记花前醉明年春到重寻幽梦应在乱莺声里拍防干斜阳转处有谁共倚无愁可解光景百年看便一世生来不识愁味问愁何处来更开解个甚底万事从来风过耳何用不着心里你唤做展却眉便是逹者也则恐未此理本不通言何曾道欢游胜如名利道则浑是错不道如何即是这里元无我与你甚唤做物情之外若须待醉了方开解时问无酒怎生醉沁园春孤馆灯青野店鸡号旅枕梦残渐月华收练晨霜耿耿云山摛锦朝露漙漙世路无穷劳生有限似此区区长鲜欢微吟罢凭征鞍无语往事千端当时共客长安似二陆初来俱少年有笔头千字胸中万卷致君尧舜此事何难用舍由时行藏在我袖手何妨闲处看身长健但优游卒岁且斗尊前"
    ],
    "text": "",
    "sentences": [],
-   "align": 0.403,
-   "has_text": true
+   "align": 0.482,
+   "has_text": false,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "贺新郎",
@@ -6282,16 +7231,19 @@
     "共粉泪两簌簌。"
    ],
    "align": 0.9607,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "稍遍",
    "subtitle": "陶渊明赋归去来有其词而无其声余治东坡筑雪堂于上人皆笑其陋独鄱阳董毅夫过而悦之有卜邻之意乃取归去来词稍加括使就声律以遗毅夫使家僮歌之时相从于东坡释耒而和之扣牛角而为之节不亦乐乎",
-   "body": "为米折腰因酒弃家口体交相累归去来谁不遣君归觉从前皆非今是露未晞征夫指予归路门前笑语喧童稚嗟旧菊都荒新松暗老吾年今已如此但小窗容膝闭柴扉策杖看孤云暮鸿飞云出无心鸟倦知还本非有意噫归去来兮我今忘我兼忘世亲戚无浪语琴书中有真味步翠麓﨑岖泛溪窈窕涓涓暗谷流春水观草木欣荣幽人自感吾生行且休矣念寓形宇内复几时不自觉皇皇欲何之委吾心去留谁计神仙知在何处富贵非吾愿但知临水登山啸咏自引壶觞自醉此生天命更何疑且乘流遇坎还止【其词盖世所谓般瞻之稍遍也般瞻兹语也华言为五声盖羽声也于五音之次为第五今世作般渉误矣稍遍三叠每叠加促字当为稍读去声世作哨或作涉皆非是】",
+   "body": "为米折腰因酒弃家口体交相累归去来谁不遣君归觉从前皆非今是露未晞征夫指予归路门前笑语喧童稚嗟旧菊都荒新松暗老吾年今已如此但小窗容膝闭柴扉策杖看孤云暮鸿飞云出无心鸟倦知还本非有意噫归去来兮我今忘我兼忘世亲戚无浪语琴书中有真味步翠麓﨑岖泛溪窈窕涓涓暗谷流春水观草木欣荣幽人自感吾生行且休矣念寓形宇内复几时不自觉皇皇欲何之委吾心去留谁计神仙知在何处富贵非吾愿但知临水登山啸咏自引壶觞自醉此生天命更何疑且乘流遇坎还止",
    "stanzas": [
-    "为米折腰因酒弃家口体交相累归去来谁不遣君归觉从前皆非今是露未晞征夫指予归路门前笑语喧童稚嗟旧菊都荒新松暗老吾年今已如此但小窗容膝闭柴扉策杖看孤云暮鸿飞云出无心鸟倦知还本非有意噫归去来兮我今忘我兼忘世亲戚无浪语琴书中有真味步翠麓﨑岖泛溪窈窕涓涓暗谷流春水观草木欣荣幽人自感吾生行且休矣念寓形宇内复几时不自觉皇皇欲何之委吾心去留谁计神仙知在何处富贵非吾愿但知临水登山啸咏自引壶觞自醉此生天命更何疑且乘流遇坎还止【其词盖世所谓般瞻之稍遍也般瞻兹语也华言为五声盖羽声也于五音之次为第五今世作般渉误矣稍遍三叠每叠加促字当为稍读去声世作哨或作涉皆非是】"
+    "为米折腰因酒弃家口体交相累归去来谁不遣君归觉从前皆非今是露未晞征夫指予归路门前笑语喧童稚嗟旧菊都荒新松暗老吾年今已如此但小窗容膝闭柴扉策杖看孤云暮鸿飞云出无心鸟倦知还本非有意噫归去来兮我今忘我兼忘世亲戚无浪语琴书中有真味步翠麓﨑岖泛溪窈窕涓涓暗谷流春水观草木欣荣幽人自感吾生行且休矣念寓形宇内复几时不自觉皇皇欲何之委吾心去留谁计神仙知在何处富贵非吾愿但知临水登山啸咏自引壶觞自醉此生天命更何疑且乘流遇坎还止"
    ],
-   "text": "为米折腰因酒弃家口体交相累。归去来谁不遣君归。觉从前皆非今是。露未。晞征夫指予归路门前笑语喧童稚。嗟旧菊都荒新松暗老吾年今已如此。但小窗容膝闭柴扉。策杖看孤云暮鸿飞。云出无心鸟倦知还本非有意。噫。归去来兮。我今忘我兼忘世。亲戚无浪语琴书中有真味。步翠麓﨑岖泛溪窈窕涓涓暗谷流春水。观草木欣荣幽人自感吾生行且休矣。念寓形宇内复几时。不自觉皇皇欲何之。委吾心去留谁计。神仙知在何处富贵非吾愿。但知临水登山啸咏自引壶觞自醉。此生天命更何疑。且乘流遇坎还止。【其词盖世所谓般瞻之稍遍也般瞻兹语也华言为五声盖羽声也于五音之次为第五今世作般渉误矣稍遍三叠每叠加促字当为稍读去声世作哨或作涉皆非是】",
+   "text": "为米折腰因酒弃家口体交相累。归去来谁不遣君归。觉从前皆非今是。露未。晞征夫指予归路门前笑语喧童稚。嗟旧菊都荒新松暗老吾年今已如此。但小窗容膝闭柴扉。策杖看孤云暮鸿飞。云出无心鸟倦知还本非有意。噫。归去来兮。我今忘我兼忘世。亲戚无浪语琴书中有真味。步翠麓﨑岖泛溪窈窕涓涓暗谷流春水。观草木欣荣幽人自感吾生行且休矣。念寓形宇内复几时。不自觉皇皇欲何之。委吾心去留谁计。神仙知在何处富贵非吾志。但知临水登山啸咏自引壶觞自醉。此生天命更何疑。且乘流遇坎还止。",
    "sentences": [
     "为米折腰因酒弃家口体交相累。",
     "归去来谁不遣君归。",
@@ -6311,14 +7263,16 @@
     "念寓形宇内复几时。",
     "不自觉皇皇欲何之。",
     "委吾心去留谁计。",
-    "神仙知在何处富贵非吾愿。",
+    "神仙知在何处富贵非吾志。",
     "但知临水登山啸咏自引壶觞自醉。",
     "此生天命更何疑。",
-    "且乘流遇坎还止。",
-    "【其词盖世所谓般瞻之稍遍也般瞻兹语也华言为五声盖羽声也于五音之次为第五今世作般渉误矣稍遍三叠每叠加促字当为稍读去声世作哨或作涉皆非是】"
+    "且乘流遇坎还止。"
    ],
-   "align": 0.8443,
-   "has_text": true
+   "align": 0.9802,
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "稍遍",
@@ -6349,7 +7303,10 @@
     "醉乡路稳不妨行但人生要适情耳。"
    ],
    "align": 0.9303,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 0,
+   "kind": "normal",
+   "quotes": []
   },
   {
    "tune": "戚氏",
@@ -6390,7 +7347,10 @@
     "东坡词"
    ],
    "align": 0.9459,
-   "has_text": true
+   "has_text": true,
+   "lacunae": 1,
+   "kind": "normal",
+   "quotes": []
   }
  ]
 }

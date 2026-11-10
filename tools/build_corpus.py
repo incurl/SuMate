@@ -181,12 +181,34 @@ def parse_siku(path):
             pos = header_end
 
     for e in entries:
-        # Editorial brackets that belong to the 四库 apparatus rather than to
-        # the verse itself: 【阙】/【原缺】 gaps, and 【一作...】 variants.
+        # The 四库 apparatus must never end up inside a verse.
+        #
+        # Three kinds of bracket appear in the transmitted text:
+        #   【阙】/【原缺】  -- a gap in the text; the missing characters are
+        #                      counted, not invented;
+        #   【一作…】      -- a variant reading;
+        #   校语 / 异文     -- an editorial note appended after the verse
+        #                      (e.g. 【惠州梅花上珍禽曰倒挂子似绿毛凤而小】).
+        #
+        # Leaving any of them in the verse corrupts the character count and
+        # therefore the 词牌↔字数 correspondence -- the ci analogue of the
+        # 楹联等长 check.
         e['lacunae'] = len(re.findall(r'\u3010(?:\u539f)?\u7f3a\u3011', e['body']))
         e['body'] = re.sub(r'\u3010(?:\u539f)?\u7f3a\u3011', '', e['body'])
-        e['body'] = re.sub(r'\u3010\u4e00\u4f5c[^\u3011]*\u3011', '', e['body'])
+
+        # 校语 and 异文: an editorial bracket that follows the verse.  These
+        # are recognised by their editorial vocabulary rather than by a fixed
+        # list, because the 四库 writes them in many different ways.
+        e['body'] = re.sub(r'\u3010[^\u3011]*(?:\u4e00\u4f5c|\u4e00\u4e91|'
+                           r'\u6216\u523b|\u65e7\u523b|\u539f\u523b|\u523b\u672c|'
+                           r'\u65e7\u672c|\u6821|\u6309|\u8c28\u6309|\u539f\u7f3a|'
+                           r'\u7f3a|\u9617)[^\u3011]*\u3011', '', e['body'])
+
+        # A trailing editorial bracket of any remaining shape, e.g.
+        # 【一刻枫落吴江冷。】 -- a 词牌 note appended after the last line.
+        e['body'] = re.sub(r'\u3010[^\u3011]*\u3011', '', e['body'])
         e['body'] = e['body'].replace('\u3000', '')
+        e['body'] = e['body'].strip()
 
         # 集句 (anthology poem): the body quotes other poets and marks each
         # quoted line with 【作者】.  Detect it from those markers rather than
@@ -423,6 +445,9 @@ def main():
                 'tune': e['tune'], 'subtitle': e['sub'], 'body': e['body'],
                 'stanzas': e['stanzas'], 'text': '', 'sentences': [],
                 'align': 0.0, 'has_text': False,
+                'lacunae': e.get('lacunae', 0),
+                'kind': e.get('kind', 'normal'),
+                'quotes': e.get('quotes', []),
             })
             continue
 
@@ -451,15 +476,21 @@ def main():
                 # where the two agree on the surrounding context
                 text = adopt_modern_spelling(text, e['body'], modern)
                 sents = [s for s in SENT_END.split(text) if s]
+        clean = to_simplified(text)
         poems.append({
             'tune': e['tune'],
             'subtitle': to_simplified(e['sub']),
             'body': to_simplified(e['body']),
             'stanzas': [to_simplified(st) for st in e['stanzas']],
-            'text': to_simplified(text),
+            'text': clean,
             'sentences': [to_simplified(x) for x in sents],
             'align': round(score, 4),
-            'has_text': bool(norm),
+            # The flag must describe the *cleaned* verse: an entry whose text
+            # was entirely editorial apparatus has no verse at all.
+            'has_text': bool(clean.strip()),
+            'lacunae': e.get('lacunae', 0),
+            'kind': e.get('kind', 'normal'),
+            'quotes': e.get('quotes', []),
         })
 
     out = os.path.join(ROOT, 'data', 'dongpo_corpus.json')

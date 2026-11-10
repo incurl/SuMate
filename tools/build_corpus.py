@@ -25,6 +25,11 @@ import os
 import re
 import sqlite3
 
+try:
+    import zhconv
+except ImportError:          # pragma: no cover - optional dependency
+    zhconv = None
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IDSP = '\u3000'              # ideographic space (indentation + stanza marker)
 CJK = re.compile(r'[\u4e00-\u9fff]')
@@ -329,6 +334,76 @@ def transfer_punctuation(siku_text, db_sents):
     return ''.join(rebuilt)
 
 
+# 四库 glyph variants that the traditional/simplified mapping does not cover
+# but which modern editions print differently.
+VARIANTS = {
+    # 四库异体字 / 俗字，改为现代通行正字
+    '乆': '久', '囘': '回', '晩': '晚', '疎': '疏', '氷': '冰',
+    '収': '收', '慿': '凭', '顔': '颜', '絶': '绝', '戸': '户',
+    '髪': '发', '沉': '沈', '樽': '尊', '蕋': '蕊', '鬬': '斗',
+    '竒': '奇', '葢': '盖', '嬾': '懒', '顦': '憔', '顇': '悴',
+    '疉': '叠', '剪': '翦', '辜': '孤', '谩': '漫', '纒': '缠',
+    '座': '坐', '邱': '丘', '栏': '阑', '懐': '怀', '脩': '修',
+    '朶': '朵', '鸎': '莺', '斾': '旆', '羣': '群', '牀': '床',
+    '胷': '胸', '寛': '宽', '敎': '教', '夲': '本', '逺': '远',
+    '椉': '乘', '昏': '醺', '氊': '毡', '蔌': '簌', '趂': '趁',
+    '霄': '宵', '借': '藉', '茰': '萸', '嫋': '袅', '劒': '剑',
+    '徧': '遍', '様': '样', '巵': '卮', '縁': '缘', '腕': '碗',
+    '镮': '环', '濶': '阔', '懃': '勤', '娆': '饶', '厯': '历',
+    '毬': '球', '鳬': '凫', '醖': '酝', '釭': '缸', '蓛': '簌',
+    '着': '着', '欹': '欹', '秾': '秾', '歩': '步', '裛': '裛',
+    '縠': '縠', '頳': '頳', '巻': '卷', '亸': '亸', '骎': '骎',
+    '巉': '巉', '霅': '霅', '噀': '噀', '麋': '麋', '猱': '猱',
+    '蒨': '茜', '檾': '苘', '擡': '抬', '眊': '眊', '矂': '搊',
+    '搢': '揎', '纻': '苧', '嚬': '颦', '咍': '哈', '臞': '癯',
+    '樷': '栊', '揾': '揾', '歜': '歜', '坰': '坰', '鞓': '鞯',
+    '甃': '甃', '莳': '莳', '羨': '羡', '黃': '黄', '舊': '旧',
+    '盡': '尽', '臺': '台', '葉': '叶', '華': '华', '處': '处',
+}
+
+
+def to_simplified(text):
+    """Convert a 四库 text to Simplified Chinese.
+
+    The transmitted text is traditional; the product and the concept lexicon
+    are written in Simplified Chinese, so the corpus is normalised once at
+    build time.  A small table fixes the variant glyphs that the
+    traditional/simplified mapping does not cover.
+    """
+    for a, b in VARIANTS.items():
+        text = text.replace(a, b)
+    if zhconv is not None:
+        text = zhconv.convert(text, 'zh-cn')
+    return text
+
+
+def adopt_modern_spelling(siku_text, siku_body, modern_norm):
+    """Rewrite the 四库 text with the modern edition's character forms.
+
+    The two editions differ only in glyph variants (収/收, 囘/回, 防/岸).
+    Aligning the 四库 characters to the modern ones lets us copy the modern
+    spelling across without touching the 四库 wording or punctuation.
+    """
+    if not siku_text or not modern_norm:
+        return siku_text
+    siku_cjk_pos = [i for i, ch in enumerate(siku_text) if CJK.match(ch)]
+    siku_norm = ''.join(siku_text[i] for i in siku_cjk_pos)
+    if not siku_norm:
+        return siku_text
+
+    out = list(siku_text)
+    sm = difflib.SequenceMatcher(None, siku_norm, modern_norm, autojunk=False)
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag != 'replace':
+            continue
+        n = min(i2 - i1, j2 - j1)
+        for k in range(n):
+            si = siku_cjk_pos[i1 + k]
+            if out[si] != modern_norm[j1 + k]:
+                out[si] = modern_norm[j1 + k]
+    return ''.join(out)
+
+
 # --------------------------------------------------------------------------
 def main():
     siku = parse_siku(os.path.join(ROOT, '东坡词.txt'))
@@ -363,13 +438,26 @@ def main():
             stats['aligned'] += 1
         else:
             stats['unaligned'] += 1
+
+        # The 四库 prints variant glyphs (防 for 岸, 戚 for 酹, ...) that the
+        # traditional/simplified mapping does not cover.  When the modern
+        # edition is an exact textual match, prefer its spelling.
+        if best is not None:
+            ratio = difflib.SequenceMatcher(None, norm, best['norm'],
+                                            autojunk=False).ratio()
+            if ratio >= 0.90:
+                modern = best['norm']
+                # keep the 四库 wording but adopt the modern character forms
+                # where the two agree on the surrounding context
+                text = adopt_modern_spelling(text, e['body'], modern)
+                sents = [s for s in SENT_END.split(text) if s]
         poems.append({
             'tune': e['tune'],
-            'subtitle': e['sub'],
-            'body': e['body'],
-            'stanzas': e['stanzas'],
-            'text': text,
-            'sentences': sents,
+            'subtitle': to_simplified(e['sub']),
+            'body': to_simplified(e['body']),
+            'stanzas': [to_simplified(st) for st in e['stanzas']],
+            'text': to_simplified(text),
+            'sentences': [to_simplified(x) for x in sents],
             'align': round(score, 4),
             'has_text': bool(norm),
         })

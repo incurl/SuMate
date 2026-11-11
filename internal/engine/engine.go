@@ -294,6 +294,18 @@ func (e *Engine) score(v model.Verse, sel Selection) scored {
 	}
 
 	// --- scenario axis: the user selected situational / environmental tags.
+	//
+	// The score is *graded* rather than binary.  A verse that carries the
+	// selected tag exactly is a perfect match; one that only carries a
+	// deeper tag beneath it (the user picked `occasion.exile`, the verse
+	// says `occasion.exile.hardship`) matches in spirit but not in
+	// specificity.
+	//
+	// This matters because the candidate pool is already filtered by the
+	// selected tags, so a binary score was a *constant* within the pool:
+	// every surviving verse scored 1.0, and the axis could not break a
+	// single tie.  Grading it lets the axis say which verse addresses the
+	// user's situation most precisely.
 	selTags := e.selectedTags(sel)
 	if len(selTags) == 0 {
 		s.scenario = 0.55
@@ -301,16 +313,15 @@ func (e *Engine) score(v model.Verse, sel Selection) scored {
 		var hit, total float64
 		for _, tag := range selTags {
 			total++
-			if verseHasTag(v, tag) {
-				hit++
+			m := scenarioMatch(v, tag)
+			hit += m
+			if m > 0 {
 				s.hits = append(s.hits, tagLabel(tag))
 			}
 		}
 		if total > 0 {
 			s.scenario = hit / total
 		}
-		// Sub-tags count as a partial match for their parent.
-		s.scenario = math.Min(1, s.scenario*1.15)
 	}
 
 	// --- semantic axis: concept overlap + free text.
@@ -608,6 +619,16 @@ func strengthLabel(s model.Strength) string {
 // It is used when the strict intersection of the selected tags is empty and
 // the product has to fall back to a relaxed pool, so that the user always
 // receives a verse.
+// RankIn ranks the given pool of verses under the selection.
+//
+// It is the same ranking MatchIn performs, exposed so that the audit can
+// look at the score decomposition of the candidates the user actually
+// sees.
+func (e *Engine) RankIn(pool []model.Verse, sel Selection, limit int) []Candidate {
+	sub := &Engine{verses: pool}
+	return sub.Rank(sel, limit)
+}
+
 func (e *Engine) MatchIn(pool []model.Verse, sel Selection) model.MatchResult {
 	sub := &Engine{verses: pool}
 	return sub.Match(sel)
@@ -727,4 +748,37 @@ func betterVerse(a, b scored) bool {
 		return la < lb
 	}
 	return a.v.ID < b.v.ID
+}
+
+// scenarioMatch scores how precisely a verse matches a selected tag.
+//
+// 1.0  the verse carries the tag itself
+// 0.8  the verse carries a *deeper* tag under it (the user picked a broad
+//
+//	situation, the verse names the specific one)
+//
+// 0.6  the verse carries a shallower ancestor of it (the user picked a
+//
+//	specific situation, the verse stays broad)
+func scenarioMatch(v model.Verse, tag string) float64 {
+	best := 0.0
+	for _, tags := range v.Annotation.Tags {
+		for _, t := range tags {
+			switch {
+			case t == tag:
+				return 1.0
+			case strings.HasPrefix(t, tag+"."):
+				// deeper: the verse is more specific than the selection
+				if 0.8 > best {
+					best = 0.8
+				}
+			case strings.HasPrefix(tag, t+"."):
+				// shallower: the verse is broader than the selection
+				if 0.6 > best {
+					best = 0.6
+				}
+			}
+		}
+	}
+	return best
 }

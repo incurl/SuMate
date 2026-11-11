@@ -83,3 +83,47 @@ func TestConceptEmotionsAndTangentsAreKnown(t *testing.T) {
 		}
 	}
 }
+
+// TestEveryTreeMoodNodeHasAnEmotionMapping is the regression test for a
+// gap that made a whole branch of the tree score nothing.
+//
+// The tree has intermediate mood nodes -- mood.joy, mood.low -- that the
+// user passes through on the way to a leaf.  Those nodes had no entry in
+// the mood-to-emotion map, so selecting one fell back to the "nothing
+// selected" default of 0.55 for every candidate.  The emotional axis was
+// then a constant across the whole pool and could not tell two verses
+// apart.
+//
+// The rule: every mood node in the tree must have an entry.
+func TestEveryTreeMoodNodeHasAnEmotionMapping(t *testing.T) {
+	moodMap := MoodEmotionMap()
+	missing := []string{}
+	for _, id := range treeMoodNodes() {
+		if _, ok := moodMap[id]; !ok {
+			missing = append(missing, id)
+		}
+	}
+	if len(missing) > 0 {
+		t.Errorf("these mood nodes have no emotion mapping: %v", missing)
+	}
+}
+
+// treeMoodNodes returns every mood node id in the tree.
+func treeMoodNodes() []string {
+	return []string{
+		"mood.joy", "mood.insight", "mood.low",
+		"mood.joy.serene", "mood.joy.casual", "mood.joy.release",
+		"mood.joy.relief", "mood.joy.hope", "mood.joy.warm",
+		"mood.joy.worldly", "mood.joy.romantic",
+		"mood.joy.casual.idle", "mood.joy.casual.food",
+		"mood.joy.release.drunk",
+		"mood.insight.zen", "mood.insight.rational", "mood.insight.plain",
+		"mood.insight.solitude", "mood.insight.observe",
+		"mood.insight.zen.detached", "mood.insight.plain.enough",
+		"mood.low.lonely", "mood.low.nostalgia", "mood.low.longing",
+		"mood.low.frustration", "mood.low.career", "mood.low.parting",
+		"mood.low.helpless", "mood.low.weary", "mood.low.tangled",
+		"mood.low.tangled.inexpressible", "mood.low.tangled.ambivalent",
+		"mood.low.tangled.ashamed",
+	}
+}

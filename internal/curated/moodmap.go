@@ -28,6 +28,19 @@ func MoodEmotionMap() map[string]MoodEmotion {
 // moodEmotionList is the canonical mood-to-emotion mapping.
 var moodEmotionList = []MoodEmotion{
 	// ---- 喜悦与轻快
+	//
+	// The intermediate nodes are listed too.  They are part of the tree
+	// the user drills through, and a node without an entry made the
+	// emotional axis a constant: selecting 「低回与疗愈」 fell back to the
+	// "nothing selected" default of 0.55 for every candidate, so the axis
+	// could not tell two verses apart at all.
+	{"mood.joy", []string{
+		"positive.serene_joy", "positive.peaceful_tranquility",
+		"positive.casual_leisure", "positive.worldly_ease",
+		"positive.unrestrained_freedom", "positive.relieved_mood",
+		"positive.hopeful_outlook", "positive.warm_gentleness",
+		"positive.plain_contentment", "positive.romantic_relaxation",
+	}, model.Moderate},
 	{"mood.joy.serene", []string{"positive.serene_joy", "positive.peaceful_tranquility"}, model.Moderate},
 	{"mood.joy.casual", []string{"positive.casual_leisure", "positive.worldly_ease"}, model.Obvious},
 	{"mood.joy.casual.idle", []string{"positive.casual_leisure"}, model.Obvious},
@@ -51,6 +64,12 @@ var moodEmotionList = []MoodEmotion{
 	{"mood.insight.observe", []string{"neutral.world_observation"}, model.Moderate},
 
 	// ---- 低回与疗愈
+	{"mood.low", []string{
+		"melanchol.light_loneliness", "melanchol.gentle_nostalgia",
+		"melanchol.distant_longing", "melanchol.subtle_frustration",
+		"melanchol.career_melancholy", "melanchol.parting_sadness",
+		"melanchol.life_helplessness", "melanchol.trivial_weariness",
+	}, model.Moderate},
 	{"mood.low.lonely", []string{"melanchol.light_loneliness"}, model.Moderate},
 	{"mood.low.nostalgia", []string{"melanchol.gentle_nostalgia"}, model.Moderate},
 	{"mood.low.longing", []string{"melanchol.distant_longing"}, model.Obvious},

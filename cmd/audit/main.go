@@ -42,6 +42,17 @@ func main() {
 		}},
 	}
 
+	// The service is the layer the user actually experiences: it filters
+	// the corpus by the selected tags before ranking.  Measuring the axes
+	// over the whole corpus -- as the engine alone allows -- answers a
+	// different question: it describes how the axes behave among verses
+	// the user has already excluded.
+	svc, err := service.New()
+	if err != nil {
+		fmt.Printf("service 不可用：%v\n", err)
+		os.Exit(1)
+	}
+
 	for _, cs := range cases {
 		cands := e.Rank(engine.Selection{Tags: cs.tags}, 0)
 		axes := map[string][]float64{
@@ -103,27 +114,23 @@ func main() {
 			top = top[:50]
 		}
 		fmt.Println("  --- 仅看前 50 名（决策真正发生的地方）---")
-		taxes := map[string][]float64{"语义": {}, "情绪": {}, "情境": {}, "气质": {}}
-		for _, cd := range top {
-			p := cd.Parts
-			taxes["语义"] = append(taxes["语义"], float64(p.Semantic))
-			taxes["情绪"] = append(taxes["情绪"], float64(p.Emotional))
-			taxes["情境"] = append(taxes["情境"], float64(p.Scenario))
-			taxes["气质"] = append(taxes["气质"], float64(p.Temperament))
+		reportAxes(top)
+	}
+
+	// The same report over the filtered pool -- the population the user
+	// actually sees.  This is where an axis has to earn its weight.
+	fmt.Println("\n=== 过滤后的候选池（用户真正看到的）===")
+	for _, cs := range cases {
+		pooled := svc.Rank(moodPath(cs.tags), "", 0)
+		fmt.Printf("\n=== %s ===\n", cs.label)
+		fmt.Printf("  候选 %d 句\n", len(pooled))
+		reportAxes(pooled)
+		top := pooled
+		if len(top) > 50 {
+			top = top[:50]
 		}
-		for _, name := range []string{"语义", "情绪", "情境", "气质"} {
-			xs := taxes[name]
-			distinct := map[float64]bool{}
-			for _, x := range xs {
-				distinct[x] = true
-			}
-			flag := ""
-			if pstdev(xs) == 0 {
-				flag = "  ← 常数"
-			}
-			fmt.Printf("  %s : 均值 %6.1f  标准差 %6.2f  取值 %d 种%s\n",
-				name, mean(xs), pstdev(xs), len(distinct), flag)
-		}
+		fmt.Println("  --- 仅看前 50 名（决策真正发生的地方）---")
+		reportAxes(top)
 	}
 
 	// The free-text channel.
@@ -175,11 +182,6 @@ func main() {
 	// Tree depth.
 	fmt.Println("\n=== 树深对答案的影响 ===")
 	fmt.Println("  （在 service 层测量：那里才真正按标签过滤语料）")
-	svc, err := service.New()
-	if err != nil {
-		fmt.Printf("  service 不可用：%v\n", err)
-		return
-	}
 	roots := svc.Roots()
 	if len(roots) == 0 {
 		return
@@ -252,4 +254,45 @@ func carriesAny(v model.Verse, tags []string) bool {
 		}
 	}
 	return false
+}
+
+// moodPath turns the mood tags of a case into a tree path.
+func moodPath(tags map[model.RootKey][]string) []tagtree.Filter {
+	path := []tagtree.Filter{}
+	for _, t := range tags[model.RootMood] {
+		path = append(path, tagtree.Filter{NodeID: t, Root: model.RootMood})
+	}
+	return path
+}
+
+// reportAxes prints the mean, standard deviation and number of distinct
+// values of each scoring axis over the given candidates.
+//
+// An axis with a standard deviation of zero is a constant: it cannot
+// change the order of anything.
+func reportAxes(cands []engine.Candidate) {
+	axes := map[string][]float64{"语义": {}, "情绪": {}, "情境": {}, "气质": {}}
+	for _, cd := range cands {
+		p := cd.Parts
+		axes["语义"] = append(axes["语义"], float64(p.Semantic))
+		axes["情绪"] = append(axes["情绪"], float64(p.Emotional))
+		axes["情境"] = append(axes["情境"], float64(p.Scenario))
+		axes["气质"] = append(axes["气质"], float64(p.Temperament))
+	}
+	for _, name := range []string{"语义", "情绪", "情境", "气质"} {
+		xs := axes[name]
+		if len(xs) == 0 {
+			continue
+		}
+		distinct := map[float64]bool{}
+		for _, x := range xs {
+			distinct[x] = true
+		}
+		flag := ""
+		if pstdev(xs) == 0 {
+			flag = "  ← 常数"
+		}
+		fmt.Printf("  %s : 均值 %6.1f  标准差 %6.2f  取值 %d 种%s\n",
+			name, mean(xs), pstdev(xs), len(distinct), flag)
+	}
 }

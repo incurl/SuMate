@@ -198,6 +198,33 @@ func (s *Service) Breadcrumb(path []tagtree.Filter) []model.Breadcrumb {
 	return out
 }
 
+// Rank ranks the verses that match the given path, using the same pool
+// and the same rule as Match.
+//
+// It exists so that the audit can measure the axes over the candidates the
+// user actually sees.  Measuring over the whole corpus -- which is what the
+// engine alone allows -- answers a different question: it says how the axes
+// behave among verses the user has already excluded.
+func (s *Service) Rank(path []tagtree.Filter, description string, limit int) []engine.Candidate {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+
+	sel := engine.Selection{
+		Description: description,
+		Tags:        map[model.RootKey][]string{},
+	}
+	for _, f := range path {
+		sel.Tags[f.Root] = append(sel.Tags[f.Root], f.NodeID)
+	}
+
+	strict := s.tree.Apply(s.index, path)
+	if len(strict.Verses) > 0 {
+		return s.engine.RankIn(s.versesIn(strict.Verses), sel, limit)
+	}
+	relaxed := s.tree.Relaxed(s.index, path)
+	return s.engine.RankIn(s.versesIn(relaxed), sel, limit)
+}
+
 // Match runs the final convergence matching rule.
 func (s *Service) Match(path []tagtree.Filter, description string) model.MatchResult {
 	s.mu.RLock()

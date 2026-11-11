@@ -13,6 +13,8 @@ import (
 	"github.com/incurl/sumate/internal/corpus"
 	"github.com/incurl/sumate/internal/engine"
 	"github.com/incurl/sumate/internal/model"
+	"github.com/incurl/sumate/internal/service"
+	"github.com/incurl/sumate/internal/tagtree"
 )
 
 func main() {
@@ -72,14 +74,26 @@ func main() {
 		}
 
 		// The disagreement between the concept table and the tag table.
-		disagree := 0
+		//
+		// Only verses that actually *carry* the selected tag can
+		// contradict it.  Counting all the candidates instead measured
+		// something else: most of the corpus does not carry the tag at
+		// all, so it was never a contradiction to begin with, and the
+		// number was inflated accordingly.
+		disagree, tagged := 0, 0
 		for _, cd := range cands {
+			if !carriesAny(cd.Verse, cs.tags[model.RootMood]) {
+				continue
+			}
+			tagged++
 			if cd.Parts.Emotional == 0 {
 				disagree++
 			}
 		}
-		fmt.Printf("  带所选标签却情绪判 0：%d 句 (%.0f%%)\n",
-			disagree, 100*float64(disagree)/float64(len(cands)))
+		if tagged > 0 {
+			fmt.Printf("  带所选标签却情绪判 0：%d / %d 句 (%.0f%%)\n",
+				disagree, tagged, 100*float64(disagree)/float64(tagged))
+		}
 
 		// The same measures over the *top* of the ranking, which is where
 		// the decision is actually made.  An axis that discriminates over
@@ -160,24 +174,39 @@ func main() {
 
 	// Tree depth.
 	fmt.Println("\n=== 树深对答案的影响 ===")
-	var prev string
-	for _, tags := range []map[model.RootKey][]string{
-		{model.RootMood: {"mood"}},
-		{model.RootMood: {"mood.low"}},
-		{model.RootMood: {"mood.low.longing"}},
-	} {
-		res := e.Match(engine.Selection{Tags: tags})
+	fmt.Println("  （在 service 层测量：那里才真正按标签过滤语料）")
+	svc, err := service.New()
+	if err != nil {
+		fmt.Printf("  service 不可用：%v\n", err)
+		return
+	}
+	roots := svc.Roots()
+	if len(roots) == 0 {
+		return
+	}
+	mood := roots[0]
+	path := []tagtree.Filter{{NodeID: mood.ID, Root: mood.Root}}
+	report := func(label string) {
+		res := svc.Match(path, "")
 		top := ""
 		if res.Primary.ID != "" {
 			top = trunc(res.Primary.Text, 26)
 		}
-		mark := ""
-		if prev != "" && prev == top {
-			mark = "  ← 与上一档相同"
-		}
-		fmt.Printf("  → %s%s\n", top, mark)
-		prev = top
+		fmt.Printf("  %-22s 候选 %5d → %s\n", label, res.Candidates, top)
 	}
+	report("根 " + mood.ID)
+	kids := svc.Children(mood.ID, nil)
+	if len(kids) == 0 {
+		return
+	}
+	path = append(path, tagtree.Filter{NodeID: kids[0].ID, Root: mood.Root})
+	report("二层 " + kids[0].ID)
+	gk := svc.Children(kids[0].ID, nil)
+	if len(gk) == 0 {
+		return
+	}
+	path = append(path, tagtree.Filter{NodeID: gk[0].ID, Root: mood.Root})
+	report("三层 " + gk[0].ID)
 }
 
 func trunc(s string, n int) string {
@@ -209,4 +238,18 @@ func pstdev(xs []float64) float64 {
 		v += (x - m) * (x - m)
 	}
 	return math.Sqrt(v / float64(len(xs)))
+}
+
+// carriesAny reports whether the verse carries at least one of the tags.
+func carriesAny(v model.Verse, tags []string) bool {
+	for _, want := range tags {
+		for _, xs := range v.Annotation.Tags {
+			for _, t := range xs {
+				if t == want {
+					return true
+				}
+			}
+		}
+	}
+	return false
 }

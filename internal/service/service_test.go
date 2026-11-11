@@ -227,3 +227,56 @@ func TestTagDimensionsArePopulated(t *testing.T) {
 	}
 	t.Logf("dimension usage: %v", counts)
 }
+
+// TestMatchCountsOnlyTheMatchingPool is the regression test for a pool
+// bug that made the candidate count meaningless.
+//
+// The service computed the filtered pool with tree.Apply and then threw it
+// away, calling engine.Match -- which ranks *every* verse in the corpus.
+// So a selection that matched 270 verses reported 2604 candidates, and the
+// ranking was over verses the user had already excluded.
+//
+// The engine's ranking is order-independent, so restricting the pool does
+// not make the answer arbitrary -- it makes it *correct*.
+func TestMatchCountsOnlyTheMatchingPool(t *testing.T) {
+	s := newService(t)
+	roots := s.Roots()
+	mood := roots[0]
+	kids := s.Children(mood.ID, nil)
+	if len(kids) == 0 {
+		t.Fatal("no children")
+	}
+	child := kids[0]
+
+	res := s.Match([]tagtree.Filter{{NodeID: child.ID, Root: child.Root}}, "")
+	if res.Candidates == 0 {
+		t.Fatal("no candidates")
+	}
+
+	// Every candidate must actually carry the selected tag.
+	strict := s.tree.Apply(s.index, []tagtree.Filter{{NodeID: child.ID, Root: child.Root}})
+	if res.Candidates != len(strict.Verses) {
+		t.Errorf("candidate count %d does not match the filtered pool %d",
+			res.Candidates, len(strict.Verses))
+	}
+
+	// And the primary must be one of them.
+	if !containsID(strict.Verses, res.Primary.ID) {
+		t.Errorf("the primary %q is not in the filtered pool", res.Primary.Text)
+	}
+	for _, alt := range res.Alternatives {
+		if !containsID(strict.Verses, alt.ID) {
+			t.Errorf("the alternative %q is not in the filtered pool", alt.Text)
+		}
+	}
+	t.Logf("候选 %d 句（过滤后 %d 句）", res.Candidates, len(strict.Verses))
+}
+
+func containsID(ids []string, id string) bool {
+	for _, x := range ids {
+		if x == id {
+			return true
+		}
+	}
+	return false
+}

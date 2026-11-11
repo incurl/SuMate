@@ -21,17 +21,19 @@ import (
 
 // Engine annotates the corpus.
 type Engine struct {
-	concepts  map[string]curated.Concept
-	emotions  map[string]curated.EmotionDef
-	overrides map[string]curated.Concept
+	concepts     map[string]curated.Concept
+	emotions     map[string]curated.EmotionDef
+	overrides    map[string]curated.Concept
+	moodEmotions map[string]curated.MoodEmotion
 }
 
 // New returns an engine backed by the curated knowledge base.
 func New() *Engine {
 	return &Engine{
-		concepts:  curated.Concepts(),
-		emotions:  curated.Emotions(),
-		overrides: curated.Overrides(),
+		concepts:     curated.Concepts(),
+		emotions:     curated.Emotions(),
+		overrides:    curated.Overrides(),
+		moodEmotions: curated.MoodEmotionMap(),
 	}
 }
 
@@ -181,6 +183,27 @@ func (e *Engine) Annotate(v *model.Verse, poem model.Poem) model.Annotation {
 		c := e.concepts[ck]
 		for _, em := range c.Emotions {
 			emotionScore[em]++
+		}
+		// --- reconcile the concept table with the tag table.
+		//
+		// A concept may declare a mood tag (mood.insight.observe) without
+		// listing the emotions that tag stands for (neutral.world_observation).
+		// The two tables were written independently, so a verse could carry
+		// the tag and then score zero on the emotional axis -- 43% of the
+		// candidates for a broad mood.  The tag was telling the user "this
+		// verse is in the state you picked" while the score said the
+		// opposite.
+		//
+		// The fix is to derive the missing emotions from the tag itself, so
+		// the two tables can no longer contradict each other.  The concept's
+		// own emotions still count; the tag's emotions are added so that the
+		// emotional axis reflects the tag the verse was given.
+		for _, tag := range c.Tags {
+			if me, ok := e.moodEmotions[tag]; ok {
+				for _, em := range me.Emotions {
+					emotionScore[em]++
+				}
+			}
 		}
 		for _, tg := range c.Tangents {
 			tangentSet[tg] = true

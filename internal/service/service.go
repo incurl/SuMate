@@ -221,21 +221,30 @@ func (s *Service) Match(path []tagtree.Filter, description string) model.MatchRe
 	// verse instead of an empty screen.
 	strict := s.tree.Apply(s.index, path)
 	if len(strict.Verses) > 0 {
-		return s.engine.Match(sel)
+		return s.engine.MatchIn(s.versesIn(strict.Verses), sel)
 	}
 
 	relaxed := s.tree.Relaxed(s.index, path)
-	keep := make(map[string]bool, len(relaxed))
-	for _, id := range relaxed {
+	return s.engine.MatchIn(s.versesIn(relaxed), sel)
+}
+
+// versesIn returns the verses with the given ids, in corpus order.
+//
+// The order is the corpus order on purpose: the engine's ranking is
+// order-independent (see internal/engine/arbitrary_test.go), so the pool's
+// order cannot change which verse wins.
+func (s *Service) versesIn(ids []string) []model.Verse {
+	keep := make(map[string]bool, len(ids))
+	for _, id := range ids {
 		keep[id] = true
 	}
-	pool := make([]model.Verse, 0, len(relaxed))
+	pool := make([]model.Verse, 0, len(ids))
 	for _, v := range s.verses {
 		if keep[v.ID] {
 			pool = append(pool, v)
 		}
 	}
-	return s.engine.MatchIn(pool, sel)
+	return pool
 }
 
 // ProductStance returns the position the product itself takes.

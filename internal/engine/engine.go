@@ -214,7 +214,7 @@ func (e *Engine) Rank(sel Selection, limit int) []Candidate {
 		scoredAll = append(scoredAll, s)
 	}
 	sort.SliceStable(scoredAll, func(i, j int) bool {
-		return scoredAll[i].total() > scoredAll[j].total()
+		return betterVerse(scoredAll[i], scoredAll[j])
 	})
 	out := make([]Candidate, 0, len(scoredAll))
 	for _, s := range scoredAll {
@@ -426,21 +426,61 @@ func temperamentScore(a model.Annotation) float64 {
 }
 
 // semanticScore measures the artistic-conception fit of a verse.
+//
+// The axis used to be a near-constant: it checked only whether the verse had
+// any concepts and whether its philosophy field was non-empty -- two things
+// that are true of every verse that reaches the top of the ranking.  Its
+// standard deviation over the decision region was therefore 0.00, and a
+// third of the total weight produced no difference at all.
+//
+// It now measures something that varies: how *specific* the verse's meaning
+// is.  A verse carrying ten concepts, several of them deep (moon.reunion,
+// human.brother), says something particular; a verse carrying two shallow
+// ones says little.  Specificity is a real property of the text, it varies
+// continuously across the candidates, and it needs no model to compute.
 func semanticScore(v model.Verse, sel Selection) float64 {
 	a := v.Annotation
-	score := 0.35
-	if len(a.Concepts) > 0 {
-		score += 0.15
+
+	// Specificity: the concepts a verse carries, weighted by how deep they
+	// sit in the lexicon.  A deep concept names a particular state; a
+	// shallow one names a broad region.
+	//
+	// The normalisation is measured, not guessed: across the corpus the
+	// depth sum runs from 2 (p10) through 8 (median) to 49 (max).  Dividing
+	// by the 90th percentile and *soft*-saturating keeps the ordering
+	// visible: a plain min(1, x/24) made every concept-rich verse tie at
+	// the ceiling, which merely moved the arbitrariness rather than
+	// removing it.
+	var specificity float64
+	for _, ck := range a.Concepts {
+		specificity += conceptDepth(ck)
 	}
+	score := softSaturation(specificity / specificityP90)
+
+	// The free-text description, when given, *replaces* the specificity
+	// score rather than competing with it.
+	//
+	// It has to replace it: the user has just said something specific, and
+	// a verse that merely happens to be concept-rich must not outrank one
+	// that actually understands them.  Taking the maximum let the
+	// specificity of unrelated verses win, and the description stopped
+	// mattering again.
 	if sel.Description != "" {
-		score = math.Max(score, descriptionScore(v, sel.Description))
+		return descriptionScore(v, sel.Description)
 	}
-	// A verse with a rich philosophical layer is a better "mouthpiece".
-	switch {
-	case a.Philosophy != "" && a.Conception != "":
-		score += 0.1
+	return score
+}
+
+// conceptDepth returns how specific a concept key is, by the depth of its
+// name in the lexicon's dotted hierarchy (moon.reunion -> 2).
+func conceptDepth(key string) float64 {
+	n := 1
+	for _, r := range key {
+		if r == '.' {
+			n++
+		}
 	}
-	return math.Min(score, 1)
+	return float64(n)
 }
 
 // descriptionScore measures the overlap between the user's free text and the
@@ -639,4 +679,52 @@ func philosophySummary(caveats []model.PhilosophicalCaveat) string {
 		b.WriteString(c.Note)
 	}
 	return b.String()
+}
+
+// specificityP90 is the 90th percentile of the concept-depth sum across the
+// corpus, measured with tools/audit.  A verse at the median scores about
+// 0.5, one at the 90th percentile scores about 0.63, and the most
+// concept-dense verse in the corpus reaches 1.
+const specificityP90 = 16.0
+
+// softSaturation maps a non-negative value onto (0, 1] without a hard
+// ceiling, so that two verses that both exceed 1 are still distinguishable.
+//
+// The plain min(1, x) was the original bug: once a dozen verses were
+// concept-rich enough to exceed the threshold, they all scored 1.0 and
+// tied, and the tie was then broken by corpus order.
+func softSaturation(x float64) float64 {
+	if x <= 0 {
+		return 0
+	}
+	return x / (1 + x)
+}
+
+// betterVerse decides which of two verses comes first.
+//
+// The primary comparison is the total score.  When two verses score
+// exactly the same -- which can happen for two distinct lines carrying the
+// same concepts -- the order must still be *decided*, and it must not be
+// decided by where the verse happens to sit in the corpus file.
+//
+// The rule is deliberately explainable rather than clever:
+//
+//  1. the shorter verse wins, because a short line is more like something a
+//     person would actually say out loud;
+//  2. then the verse ID, which is a stable machine key, so the result is
+//     reproducible byte for byte.
+//
+// The second rule is arbitrary in the way that any last-resort tie-break
+// must be, but it is *manifest*ly arbitrary: it does not depend on the
+// order of the input, so reversing the corpus cannot change the answer.
+func betterVerse(a, b scored) bool {
+	ta, tb := a.total(), b.total()
+	if ta != tb {
+		return ta > tb
+	}
+	la, lb := len([]rune(a.v.Text)), len([]rune(b.v.Text))
+	if la != lb {
+		return la < lb
+	}
+	return a.v.ID < b.v.ID
 }

@@ -16,12 +16,20 @@ corpus = json.load(open(os.path.join(ROOT, 'data', 'dongpo_corpus.json'), encodi
 texts = [p['text'] for p in corpus['poems'] if p['text']]
 
 # Pull the keyword lists out of the Go source (single source of truth).
-src = open(os.path.join(ROOT, 'internal', 'curated', 'knowledge.go'), encoding='utf-8').read()
-src += open(os.path.join(ROOT, 'internal', 'curated', 'knowledge_extra.go'), encoding='utf-8').read()
+src = ""
+for _f in ('knowledge.go', 'knowledge_extra.go', 'modern.go'):
+    _p = os.path.join(ROOT, 'internal', 'curated', _f)
+    if os.path.exists(_p):
+        src += open(_p, encoding='utf-8').read()
 
 kws = []
 for m in re.finditer(r'Keywords:\s*\[\]string\{([^}]*)\}', src):
     for k in re.findall(r'"([^"]+)"', m.group(1)):
+        if k not in kws:
+            kws.append(k)
+# The modern colloquial table is a map literal, not a Keywords: field.
+for m in re.finditer(r'"([a-z][a-z0-9_.]+)":\s*\{(.*?)\}', src, re.S):
+    for k in re.findall(r'"([^"]+)"', m.group(2)):
         if k not in kws:
             kws.append(k)
 
